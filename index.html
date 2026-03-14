@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人理财助手 v3.1</title>
+    <title>个人理财助手 v3.4</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
+        .version-bar { background: #0052CC; color: white; padding: 6px 16px; font-size: 12px; text-align: center; }
         .info-bar { background: linear-gradient(135deg, #0066FF, #0052CC); color: white; padding: 12px 16px; }
         .info-top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
         .info-title { text-align: center; font-size: 16px; font-weight: 600; }
@@ -74,32 +78,43 @@
         .gold-change { font-size: 13px; color: #FF4D4F; margin-bottom: 12px; }
         .gold-trend { display: flex; justify-content: space-between; align-items: flex-end; height: 50px; gap: 4px; }
         .gold-bar { flex: 1; background: linear-gradient(to top, #FA8C16, #FFC53D); border-radius: 4px 4px 0 0; }
+        .refresh-btn { background: #0066FF; color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-left: 8px; }
+        .refresh-btn:hover { background: #0052CC; }
+        .status-bar { background: #f0f2f5; padding: 8px 16px; font-size: 11px; color: #666; display: flex; justify-content: space-between; align-items: center; }
+        .status-bar .refresh { color: #0066FF; cursor: pointer; }
     </style>
 </head>
 <body>
+    <div class="version-bar">
+        💰 个人理财助手 v3.4 | 发布时间：2026-03-14 22:30 | 数据源：东方财富
+    </div>
     <div class="info-bar">
         <div class="info-top">
             <div id="datetime">2026-03-14 周六 20:00</div>
             <div>🌤️ 成都 19°C</div>
         </div>
-        <div class="info-title">💰 个人理财助手</div>
+        <div class="info-title">实时行情</div>
+    </div>
+    <div class="status-bar">
+        <span id="dataStatus">📡 正在获取实时数据...</span>
+        <span class="refresh" onclick="refreshAll()">🔄 刷新全部</span>
     </div>
     <div class="container">
         <div id="home" class="section active">
             <div class="card">
-                <div class="card-title">📊 国内市场 <span class="data-time">数据截至 20:00</span></div>
+                <div class="card-title">📊 国内市场 <span class="data-time" id="stockTime">加载中...</span></div>
                 <div class="market-grid">
-                    <div class="market-card"><div class="market-name">上证指数</div><div class="market-price">3,050.23</div><div class="market-change up">+1.23% 🔴</div><div class="market-unit">点</div><div class="market-source">来源：新浪财经</div></div>
-                    <div class="market-card"><div class="market-name">深证成指</div><div class="market-price">10,523.45</div><div class="market-change up">+0.87% 🔴</div><div class="market-unit">点</div><div class="market-source">来源：新浪财经</div></div>
-                    <div class="market-card"><div class="market-name">创业板指</div><div class="market-price">2,105.67</div><div class="market-change up">+1.56% 🔴</div><div class="market-unit">点</div><div class="market-source">来源：新浪财经</div></div>
-                    <div class="market-card"><div class="market-name">沪深 300</div><div class="market-price">3,850.12</div><div class="market-change up">+1.05% 🔴</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">上证指数</div><div class="market-price" id="sh000001">加载中</div><div class="market-change" id="sh000001_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">深证成指</div><div class="market-price" id="sz399001">加载中</div><div class="market-change" id="sz399001_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">创业板指</div><div class="market-price" id="sz399006">加载中</div><div class="market-change" id="sz399006_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">沪深 300</div><div class="market-price" id="sh000300">加载中</div><div class="market-change" id="sh000300_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
                 </div>
             </div>
             <div class="card">
-                <div class="card-title">🥇 黄金行情 <span class="data-time">数据截至 20:00</span></div>
+                <div class="card-title">🥇 黄金行情 <span class="data-time" id="goldTime">加载中...</span> <button class="refresh-btn" onclick="fetchGoldPrice()">🔄 刷新</button></div>
                 <div class="gold-chart">
-                    <div class="gold-price">¥565.30 /克</div>
-                    <div class="gold-change up">今日 +¥2.50 (+0.44%)</div>
+                    <div class="gold-price" id="goldPrice">加载中...</div>
+                    <div class="gold-change" id="goldChange">--</div>
                     <div class="gold-trend">
                         <div class="gold-bar" style="height: 35px;"></div>
                         <div class="gold-bar" style="height: 40px;"></div>
@@ -111,8 +126,8 @@
                     </div>
                 </div>
                 <div class="market-grid">
-                    <div class="market-card"><div class="market-name">国内黄金</div><div class="market-price">565.30</div><div class="market-change up">+0.44%</div><div class="market-unit">元/克</div><div class="market-source">来源：上海金交所</div></div>
-                    <div class="market-card"><div class="market-name">国际黄金</div><div class="market-price">2,050.30</div><div class="market-change up">+0.32%</div><div class="market-unit">美元/盎司</div><div class="market-source">来源：COMEX</div></div>
+                    <div class="market-card"><div class="market-name">国内黄金</div><div class="market-price" id="cnfGold">加载中</div><div class="market-change" id="cnfGold_change">--</div><div class="market-unit">元/克</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">国际黄金</div><div class="market-price" id="comexGold">加载中</div><div class="market-change" id="comexGold_change">--</div><div class="market-unit">美元/盎司</div><div class="market-source">来源：东方财富</div></div>
                 </div>
             </div>
             <div class="card">
@@ -153,26 +168,26 @@
         </div>
         <div id="market" class="section">
             <div class="card">
-                <div class="card-title">📊 A 股行情 <span class="data-time">数据截至 20:00</span></div>
+                <div class="card-title">📊 A 股行情 <span class="data-time" id="marketTime">加载中...</span></div>
                 <div class="market-grid">
-                    <div class="market-card"><div class="market-name">上证指数</div><div class="market-price">3,050.23</div><div class="market-change up">+1.23%</div><div class="market-unit">点</div><div class="market-source">来源：新浪财经</div></div>
-                    <div class="market-card"><div class="market-name">深证成指</div><div class="market-price">10,523</div><div class="market-change up">+0.87%</div><div class="market-unit">点</div><div class="market-source">来源：新浪财经</div></div>
-                    <div class="market-card"><div class="market-name">创业板指</div><div class="market-price">2,105</div><div class="market-change up">+1.56%</div><div class="market-unit">点</div><div class="market-source">来源：新浪财经</div></div>
-                    <div class="market-card"><div class="market-name">沪深 300</div><div class="market-price">3,850</div><div class="market-change up">+1.05%</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
-                    <div class="market-card"><div class="market-name">腾讯控股</div><div class="market-price">380.20</div><div class="market-change up">+1.80%</div><div class="market-unit">港元</div><div class="market-source">来源：港交所</div></div>
-                    <div class="market-card"><div class="market-name">贵州茅台</div><div class="market-price">1,850</div><div class="market-change up">+0.56%</div><div class="market-unit">元</div><div class="market-source">来源：上交所</div></div>
+                    <div class="market-card"><div class="market-name">上证指数</div><div class="market-price" id="mkt_sh000001">加载中</div><div class="market-change" id="mkt_sh000001_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">深证成指</div><div class="market-price" id="mkt_sz399001">加载中</div><div class="market-change" id="mkt_sz399001_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">创业板指</div><div class="market-price" id="mkt_sz399006">加载中</div><div class="market-change" id="mkt_sz399006_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">沪深 300</div><div class="market-price" id="mkt_sh000300">加载中</div><div class="market-change" id="mkt_sh000300_change">--</div><div class="market-unit">点</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">腾讯控股</div><div class="market-price" id="mkt_hk00700">加载中</div><div class="market-change" id="mkt_hk00700_change">--</div><div class="market-unit">港元</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">贵州茅台</div><div class="market-price" id="mkt_sh600519">加载中</div><div class="market-change" id="mkt_sh600519_change">--</div><div class="market-unit">元</div><div class="market-source">来源：东方财富</div></div>
                 </div>
-                <div class="disclaimer">⚠️ 以上数据为演示数据，仅供参考。实时行情请访问 <a href="https://finance.sina.com.cn/" target="_blank" style="color:#0066FF">新浪财经</a> 或 <a href="https://www.eastmoney.com/" target="_blank" style="color:#0066FF">东方财富</a></div>
+                <div class="disclaimer">⚠️ 数据来源于东方财富，仅供参考。投资有风险，决策需谨慎。</div>
             </div>
             <div class="card">
-                <div class="card-title">📈 国内基金 <span class="data-time">数据截至 20:00</span></div>
+                <div class="card-title">📈 国内基金 <span class="data-time" id="fundTime">加载中...</span></div>
                 <div class="market-grid">
-                    <div class="market-card"><div class="market-name">沪深 300ETF</div><div class="market-price">4.5678</div><div class="market-change up">+0.98%</div><div class="market-unit">元</div><div class="market-source">来源：天天基金</div></div>
-                    <div class="market-card"><div class="market-name">易方达蓝筹</div><div class="market-price">1.2563</div><div class="market-change up">+2.34%</div><div class="market-unit">元</div><div class="market-source">来源：天天基金</div></div>
-                    <div class="market-card"><div class="market-name">招商中证白酒</div><div class="market-price">1.5892</div><div class="market-change up">+1.87%</div><div class="market-unit">元</div><div class="market-source">来源：天天基金</div></div>
-                    <div class="market-card"><div class="market-name">余额宝</div><div class="market-price">1.0000</div><div class="market-change up">+0.05%</div><div class="market-unit">元</div><div class="market-source">来源：支付宝</div></div>
+                    <div class="market-card"><div class="market-name">沪深 300ETF</div><div class="market-price" id="fund_510300">加载中</div><div class="market-change" id="fund_510300_change">--</div><div class="market-unit">元</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">易方达蓝筹</div><div class="market-price" id="fund_005827">加载中</div><div class="market-change" id="fund_005827_change">--</div><div class="market-unit">元</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">招商中证白酒</div><div class="market-price" id="fund_161725">加载中</div><div class="market-change" id="fund_161725_change">--</div><div class="market-unit">元</div><div class="market-source">来源：东方财富</div></div>
+                    <div class="market-card"><div class="market-name">余额宝</div><div class="market-price" id="fund_000198">加载中</div><div class="market-change" id="fund_000198_change">--</div><div class="market-unit">元</div><div class="market-source">来源：天弘基金</div></div>
                 </div>
-                <div class="disclaimer">⚠️ 基金净值每日更新，实际数据请以 <a href="http://fund.eastmoney.com/" target="_blank" style="color:#0066FF">天天基金网</a> 为准</div>
+                <div class="disclaimer">⚠️ 基金净值每日更新，实际数据请以天天基金网为准</div>
             </div>
         </div>
         <div id="platform" class="section">
@@ -210,6 +225,8 @@
     </div>
     <div class="footer">⚠️ 投资有风险，决策需谨慎<br>本应用仅提供信息参考，不构成投资建议</div>
     <script>
+        const APP_VERSION = 'v3.4';
+        const APP_RELEASE_DATE = '2026-03-14 22:30';
         const articles=[
             {c:'入门',t:'什么是理财？',s:'理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。',content:'<h1>什么是理财？</h1><p>理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。理财不仅仅是投资，还包括储蓄、保险、税务规划等多个方面。</p><h2>理财的核心目标</h2><ol><li>保障日常生活开支</li><li>应对突发事件</li><li>实现财富增值</li><li>为未来目标做准备（如购房、教育、养老）</li></ol><h2>理财的基本原则</h2><ul><li><strong>量入为出：</strong>支出不要超过收入</li><li><strong>分散投资：</strong>不要把鸡蛋放在一个篮子里</li><li><strong>长期思维：</strong>理财是马拉松，不是短跑</li><li><strong>风险匹配：</strong>选择与自己风险承受能力匹配的产品</li></ul>'},
             {c:'入门',t:'复利效应',s:'被爱因斯坦称为"世界第八大奇迹"。复利公式：FV = PV × (1 + r)^n',content:'<h1>复利效应：世界第八大奇迹</h1><p>复利是指利息再生利息的效果，被爱因斯坦称为"世界第八大奇迹"。</p><h2>复利公式</h2><p><strong>FV = PV × (1 + r)^n</strong></p><ul><li>FV：未来价值</li><li>PV：现值（本金）</li><li>r：年化收益率</li><li>n：投资年限</li></ul><h2>复利的威力</h2><p>每月定投 1000 元，年化 8%，30 年后本息合计约 150 万元（本金只有 36 万）</p>'},
@@ -234,7 +251,127 @@
         function showArticle(index){const article=articles[index];document.getElementById('articleContent').innerHTML=article.content;document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('article').classList.add('active');window.scrollTo(0,0);}
         function showNews(category){document.querySelectorAll('.news-tab').forEach(t=>t.classList.remove('active'));event.target.classList.add('active');const list=document.getElementById('newsList');list.innerHTML=newsData[category].map(n=>'<div class="news-item"><div class="news-title"><a href="'+n.u+'" target="_blank">'+n.t+'</a></div><div class="news-meta"><span class="news-source">'+n.s+'</span><span>'+n.time+'</span></div></div>').join('');}
         function updateTime(){const now=new Date();const options={year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false};const weekday=['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];document.getElementById('datetime').textContent=now.toLocaleDateString('zh-CN',options)+' '+weekday;}
-        updateTime();setInterval(updateTime,60000);renderArticles();showNews('finance');
+        
+        // === 东方财富 API ===
+        function fetchEastMoneyData(url, callback) {
+            fetch(url + '&cb=?')
+                .then(res => res.text())
+                .then(text => {
+                    const json = text.replace(/^.*?\(/, '').replace(/\);?$/, '');
+                    callback(JSON.parse(json));
+                })
+                .catch(err => {
+                    console.error('API Error:', err);
+                    document.getElementById('dataStatus').textContent = '❌ 数据获取失败';
+                });
+        }
+        
+        function updateMarketUI(prefix, price, change, changePercent, timeId) {
+            if (price === null || price === undefined || isNaN(price)) return;
+            document.getElementById(prefix + 'price').textContent = parseFloat(price).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            const changeEl = document.getElementById(prefix + 'change');
+            const changeText = (change >= 0 ? '+' : '') + parseFloat(changePercent).toFixed(2) + '%';
+            changeEl.textContent = changeText;
+            changeEl.className = 'market-change ' + (change >= 0 ? 'up' : 'down');
+            if (timeId) {
+                const now = new Date();
+                document.getElementById(timeId).textContent = '更新于 ' + now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+            }
+        }
+        
+        function fetchMarketData() {
+            const symbols = ['1.000001','1.000300','0.399001','0.399006'];
+            const url = 'https://push2.eastmoney.com/api/qt/ulist/get?secids=' + symbols.join(',') + '&fields=f43,f44,f45,f46,f170';
+            
+            fetchEastMoneyData(url, (result) => {
+                if (!result || !result.data || !result.data.diff) {
+                    document.getElementById('dataStatus').textContent = '❌ 数据获取失败';
+                    return;
+                }
+                document.getElementById('dataStatus').textContent = '✅ 数据已更新';
+                const data = result.data.diff;
+                if (data[0]) updateMarketUI('sh000001_', data[0].f43, data[0].f44, data[0].f45, 'stockTime');
+                if (data[1]) updateMarketUI('sh000300_', data[1].f43, data[1].f44, data[1].f45);
+                if (data[2]) updateMarketUI('sz399001_', data[2].f43, data[2].f44, data[2].f45);
+                if (data[3]) updateMarketUI('sz399006_', data[3].f43, data[3].f44, data[3].f45);
+                if (data[0]) updateMarketUI('mkt_sh000001_', data[0].f43, data[0].f44, data[0].f45, 'marketTime');
+                if (data[1]) updateMarketUI('mkt_sh000300_', data[1].f43, data[1].f44, data[1].f45);
+                if (data[2]) updateMarketUI('mkt_sz399001_', data[2].f43, data[2].f44, data[2].f45);
+                if (data[3]) updateMarketUI('mkt_sz399006_', data[3].f43, data[3].f44, data[3].f45);
+            });
+        }
+        
+        function fetchGoldPrice() {
+            document.getElementById('goldPrice').textContent = '加载中...';
+            document.getElementById('cnfGold').textContent = '加载中...';
+            document.getElementById('comexGold').textContent = '加载中...';
+            
+            const cnGoldUrl = 'https://push2.eastmoney.com/api/qt/stock/get?secid=133.GB9999&fields=f43,f44,f45';
+            const usGoldUrl = 'https://push2.eastmoney.com/api/qt/stock/get?secid=12.GC00&fields=f43,f44,f45';
+            
+            fetchEastMoneyData(cnGoldUrl, (result) => {
+                if (result && result.data) {
+                    const d = result.data;
+                    document.getElementById('cnfGold').textContent = parseFloat(d.f43).toFixed(2);
+                    const cnfChangeEl = document.getElementById('cnfGold_change');
+                    cnfChangeEl.textContent = (d.f44 >= 0 ? '+' : '') + parseFloat(d.f45).toFixed(2) + '%';
+                    cnfChangeEl.className = 'market-change ' + (d.f44 >= 0 ? 'up' : 'down');
+                }
+            });
+            
+            fetchEastMoneyData(usGoldUrl, (result) => {
+                if (result && result.data) {
+                    const d = result.data;
+                    document.getElementById('comexGold').textContent = parseFloat(d.f43).toFixed(2);
+                    const comexChangeEl = document.getElementById('comexGold_change');
+                    comexChangeEl.textContent = (d.f44 >= 0 ? '+' : '') + parseFloat(d.f45).toFixed(2) + '%';
+                    comexChangeEl.className = 'market-change ' + (d.f44 >= 0 ? 'up' : 'down');
+                    document.getElementById('goldPrice').textContent = '$' + parseFloat(d.f43).toFixed(2) + '/盎司';
+                    document.getElementById('goldChange').textContent = '今日 ' + (d.f44 >= 0 ? '+' : '') + d.f44.toFixed(2) + ' (' + (d.f44 >= 0 ? '+' : '') + parseFloat(d.f45).toFixed(2) + '%)';
+                    document.getElementById('goldChange').className = 'gold-change ' + (d.f44 >= 0 ? 'up' : 'down');
+                }
+            });
+            
+            const now = new Date();
+            document.getElementById('goldTime').textContent = '更新于 ' + now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+        }
+        
+        function fetchFundData() {
+            const symbols = ['510300','005827','161725','000198'];
+            const url = 'https://push2.eastmoney.com/api/qt/ulist/get?secids=1.' + symbols.join(',1.') + '&fields=f43,f44,f45';
+            
+            fetchEastMoneyData(url, (result) => {
+                if (!result || !result.data || !result.data.diff) return;
+                const data = result.data.diff;
+                const fundIds = ['510300','005827','161725','000198'];
+                data.forEach((d, i) => {
+                    if (d && fundIds[i]) {
+                        document.getElementById('fund_' + fundIds[i]).textContent = parseFloat(d.f43).toFixed(4);
+                        const changeEl = document.getElementById('fund_' + fundIds[i] + '_change');
+                        changeEl.textContent = (d.f44 >= 0 ? '+' : '') + parseFloat(d.f45).toFixed(2) + '%';
+                        changeEl.className = 'market-change ' + (d.f44 >= 0 ? 'up' : 'down');
+                    }
+                });
+                const now = new Date();
+                document.getElementById('fundTime').textContent = '更新于 ' + now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+            });
+        }
+        
+        function refreshAll() {
+            document.getElementById('dataStatus').textContent = '🔄 刷新中...';
+            fetchMarketData();
+            fetchGoldPrice();
+            fetchFundData();
+        }
+        
+        updateTime();
+        setInterval(updateTime, 60000);
+        renderArticles();
+        showNews('finance');
+        fetchMarketData();
+        fetchGoldPrice();
+        fetchFundData();
+        setInterval(refreshAll, 60000);
     </script>
 </body>
-</html>
+</html><!-- force update 1773499678 -->
