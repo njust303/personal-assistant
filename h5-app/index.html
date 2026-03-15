@@ -3,60 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人理财助手 v3.9 - 实时行情</title>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>个人理财助手 v4.0 - 专业版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
-        .version-bar { background: #0052CC; color: white; padding: 6px 16px; font-size: 12px; text-align: center; }
-        .info-bar { background: linear-gradient(135deg, #0066FF, #0052CC); color: white; padding: 12px 16px; }
-        .info-top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
-        .info-title { text-align: center; font-size: 16px; font-weight: 600; }
+        .version-bar { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 8px 16px; font-size: 12px; text-align: center; font-weight: 600; }
+        .info-bar { background: linear-gradient(135deg, #0066FF, #0052CC); color: white; padding: 15px 16px; }
+        .info-top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; }
+        .info-title { text-align: center; font-size: 18px; font-weight: 600; }
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; display: flex; justify-content: space-around; padding: 8px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; color: #999; font-size: 11px; padding: 4px 12px; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; color: #999; font-size: 11px; padding: 4px 12px; cursor: pointer; }
         .nav-item.active { color: #0066FF; background: #e6f7ff; border-radius: 8px; }
         .nav-icon { font-size: 20px; }
         .container { padding: 12px; max-width: 600px; margin: 0 auto; }
         .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        .card-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .live-btn { background: linear-gradient(135deg, #52C41A, #389E0D); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; margin: 10px 0; font-weight: 600; text-align: center; transition: all 0.3s; }
+        .card-title { font-size: 17px; font-weight: 600; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; color: #333; }
+        .live-btn { background: linear-gradient(135deg, #52C41A, #389E0D); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: block; margin: 0; font-weight: 600; text-align: center; transition: all 0.3s; box-shadow: 0 2px 8px rgba(82,196,26,0.3); }
         .live-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(82,196,26,0.4); }
         .live-btn:active { transform: translateY(0); }
-        .market-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0; }
-        .market-card { background: #f8f9fa; padding: 14px; border-radius: 10px; border: 1px solid #f0f0f0; }
-        .market-name { font-size: 12px; color: #666; margin-bottom: 6px; }
-        .market-price { font-size: 18px; font-weight: bold; color: #333; margin-bottom: 4px; }
-        .market-unit { font-size: 11px; color: #999; }
-        .disclaimer { background: #fff7e6; padding: 12px; border-radius: 8px; font-size: 11px; color: #999; margin-top: 12px; border: 1px dashed #ffd591; }
+        .live-btn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .live-btn-sm { background: linear-gradient(135deg, #1890FF, #096dd9); padding: 10px 16px; font-size: 13px; }
+        .disclaimer { background: #fff7e6; padding: 10px; border-radius: 8px; font-size: 11px; color: #999; margin-top: 10px; border: 1px dashed #ffd591; }
         .footer { text-align: center; padding: 20px; color: #999; font-size: 11px; }
         .section { display: none; }
         .section.active { display: block; }
-        .news-tabs { display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; }
-        .news-tab { background: white; border: 1px solid #e8e8e8; padding: 6px 14px; border-radius: 16px; font-size: 13px; white-space: nowrap; color: #666; cursor: pointer; }
+        .news-tabs { display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px; }
+        .news-tab { background: white; border: 1px solid #e8e8e8; padding: 6px 14px; border-radius: 16px; font-size: 13px; white-space: nowrap; color: #666; cursor: pointer; transition: all 0.2s; }
         .news-tab.active { background: #0066FF; color: white; border-color: #0066FF; }
         .news-list { display: grid; gap: 10px; }
-        .news-item { padding: 14px; background: #f8f9fa; border-radius: 10px; border-left: 3px solid #0066FF; }
-        .news-title { font-size: 14px; font-weight: 500; color: #333; margin-bottom: 8px; line-height: 1.4; }
+        .news-item { padding: 14px; background: linear-gradient(135deg, #f8f9fa, #fff); border-radius: 10px; border-left: 4px solid #0066FF; transition: all 0.3s; }
+        .news-item:hover { box-shadow: 0 4px 12px rgba(0,102,255,0.15); transform: translateX(2px); }
+        .news-title { font-size: 14px; font-weight: 500; color: #333; margin-bottom: 8px; line-height: 1.5; }
         .news-title a { color: #0066FF; text-decoration: none; }
-        .news-meta { display: flex; justify-content: space-between; font-size: 11px; color: #999; }
-        .news-source { background: #e6f7ff; color: #1890FF; padding: 2px 8px; border-radius: 8px; }
+        .news-title a:hover { text-decoration: underline; }
+        .news-meta { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #999; }
+        .news-source { background: linear-gradient(135deg, #e6f7ff, #bae7ff); color: #1890FF; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+        .news-hot { background: linear-gradient(135deg, #fff7e6, #ffe7ba); color: #fa8c16; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
         .article-list { display: grid; gap: 10px; }
-        .article-card { background: #f8f9fa; padding: 14px; border-radius: 10px; cursor: pointer; border: 1px solid transparent; transition: all 0.3s; }
-        .article-card:active { background: #e6f7ff; border-color: #0066FF; }
-        .article-title { font-size: 15px; font-weight: 500; color: #333; margin-bottom: 6px; }
-        .article-summary { font-size: 13px; color: #666; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .article-meta { font-size: 12px; color: #999; margin-top: 8px; display: flex; justify-content: space-between; }
-        .filter-bar { display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; }
-        .filter-btn { background: white; border: 1px solid #e8e8e8; padding: 6px 14px; border-radius: 16px; font-size: 13px; white-space: nowrap; color: #666; }
+        .article-card { background: linear-gradient(135deg, #f8f9fa, #fff); padding: 14px; border-radius: 10px; cursor: pointer; border: 1px solid #e8e8e8; transition: all 0.3s; }
+        .article-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-color: #0066FF; }
+        .article-title { font-size: 15px; font-weight: 500; color: #333; margin-bottom: 6px; line-height: 1.4; }
+        .article-summary { font-size: 13px; color: #666; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .article-meta { font-size: 12px; color: #999; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .article-tag { background: #e6f7ff; color: #1890FF; padding: 2px 8px; border-radius: 8px; font-size: 11px; }
+        .filter-bar { display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px; }
+        .filter-btn { background: white; border: 1px solid #e8e8e8; padding: 6px 14px; border-radius: 16px; font-size: 13px; white-space: nowrap; color: #666; cursor: pointer; }
         .filter-btn.active { background: #0066FF; color: white; border-color: #0066FF; }
         .back-btn { background: #0066FF; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 12px; font-size: 14px; width: 100%; }
         .article-content { background: white; padding: 20px; border-radius: 12px; line-height: 1.8; font-size: 15px; }
-        .article-content h1 { font-size: 20px; margin-bottom: 16px; color: #333; }
-        .article-content h2 { font-size: 17px; margin: 18px 0 10px; color: #333; border-left: 3px solid #0066FF; padding-left: 10px; }
-        .article-content p { margin-bottom: 14px; color: #555; }
-        .article-content ul, .article-content ol { margin: 14px 0 14px 18px; color: #555; }
-        .article-content li { margin-bottom: 6px; }
-        .platform-card { padding: 14px; border: 1px solid #e8e8e8; border-radius: 10px; margin-bottom: 10px; }
+        .article-content h1 { font-size: 22px; margin-bottom: 16px; color: #333; border-left: 4px solid #0066FF; padding-left: 12px; }
+        .article-content h2 { font-size: 18px; margin: 20px 0 12px; color: #333; border-left: 3px solid #0066FF; padding-left: 10px; }
+        .article-content p { margin-bottom: 14px; color: #555; line-height: 1.7; }
+        .article-content ul, .article-content ol { margin: 14px 0 14px 20px; color: #555; }
+        .article-content li { margin-bottom: 8px; line-height: 1.6; }
+        .platform-card { padding: 14px; border: 1px solid #e8e8e8; border-radius: 10px; margin-bottom: 10px; transition: all 0.3s; }
+        .platform-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         .platform-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .platform-name { font-size: 15px; font-weight: 600; }
         .platform-score { color: #666; font-size: 13px; }
@@ -66,51 +67,41 @@
         .tag-green { background: #f6ffed; color: #52C41A; }
         .tag-blue { background: #e6f7ff; color: #1890FF; }
         .tag-purple { background: #f9f0ff; color: #722ED1; }
-        .advice-box { background: linear-gradient(135deg, #f6ffed, #d9f7be); padding: 14px; border-radius: 10px; border-left: 3px solid #52C41A; }
-        .advice-item { margin-bottom: 8px; font-size: 13px; }
+        .advice-box { background: linear-gradient(135deg, #f6ffed, #d9f7be); padding: 14px; border-radius: 10px; border-left: 4px solid #52C41A; }
+        .advice-item { margin-bottom: 8px; font-size: 13px; line-height: 1.5; }
+        .quick-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+        .quick-link { background: linear-gradient(135deg, #f0f5ff, #e6f7ff); border: 1px solid #adc6ff; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; color: #0066FF; font-size: 12px; font-weight: 500; transition: all 0.3s; }
+        .quick-link:hover { background: linear-gradient(135deg, #e6f7ff, #bae7ff); transform: translateY(-2px); }
+        .knowledge-category { background: linear-gradient(135deg, #f9f0ff, #f3e5f5); padding: 12px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #722ED1; }
+        .knowledge-category h3 { color: #722ED1; font-size: 15px; margin-bottom: 8px; }
+        .knowledge-category ul { list-style: none; }
+        .knowledge-category li { padding: 6px 0; color: #666; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+        .knowledge-category li:hover { color: #722ED1; padding-left: 8px; }
     </style>
 </head>
 <body>
     <div class="version-bar">
-        💰 个人理财助手 v3.9 | 实时行情跳转
+        💰 个人理财助手 v4.0 专业版 | 2026-03-15
     </div>
     <div class="info-bar">
         <div class="info-top">
             <div id="datetime">加载中...</div>
-            <div>🌤️ 成都 19°C</div>
+            <div>📈 市场动态</div>
         </div>
-        <div class="info-title">实时行情</div>
+        <div class="info-title">投资理财助手</div>
     </div>
     <div class="container">
+        <!-- 首页 -->
         <div id="home" class="section active">
             <div class="card">
-                <div class="card-title">📊 A 股行情</div>
-                <div class="market-grid">
-                    <div class="market-card"><div class="market-name">上证指数</div><div class="market-price">--</div><div class="market-unit">点</div></div>
-                    <div class="market-card"><div class="market-name">深证成指</div><div class="market-price">--</div><div class="market-unit">点</div></div>
-                    <div class="market-card"><div class="market-name">创业板指</div><div class="market-price">--</div><div class="market-unit">点</div></div>
-                    <div class="market-card"><div class="market-name">沪深 300</div><div class="market-price">--</div><div class="market-unit">点</div></div>
+                <div class="card-title">🔗 实时行情</div>
+                <div class="live-btn-grid">
+                    <a href="https://quote.eastmoney.com/center/gridlist.html" target="_blank" class="live-btn">📊 A 股行情</a>
+                    <a href="https://gold.eastmoney.com/" target="_blank" class="live-btn">🥇 黄金行情</a>
+                    <a href="http://fund.eastmoney.com/" target="_blank" class="live-btn live-btn-sm">💰 基金净值</a>
+                    <a href="https://hk.quote.eastmoney.com/" target="_blank" class="live-btn live-btn-sm">🇭🇰 港股行情</a>
                 </div>
-                <a href="https://quote.eastmoney.com/center/gridlist.html" target="_blank" class="live-btn">🔗 查看实时行情</a>
-                <div class="disclaimer">⚠️ 点击按钮跳转东方财富查看实时数据</div>
-            </div>
-            <div class="card">
-                <div class="card-title">🥇 黄金行情</div>
-                <div class="market-grid">
-                    <div class="market-card"><div class="market-name">国内黄金</div><div class="market-price">--</div><div class="market-unit">元/克</div></div>
-                    <div class="market-card"><div class="market-name">国际黄金</div><div class="market-price">--</div><div class="market-unit">美元/盎司</div></div>
-                </div>
-                <a href="https://gold.eastmoney.com/" target="_blank" class="live-btn">🔗 查看实时金价</a>
-                <div class="disclaimer">⚠️ 点击按钮跳转东方财富查看实时金价</div>
-            </div>
-            <div class="card">
-                <div class="card-title">📈 基金净值</div>
-                <div class="market-grid">
-                    <div class="market-card"><div class="market-name">沪深 300ETF</div><div class="market-price">--</div><div class="market-unit">元</div></div>
-                    <div class="market-card"><div class="market-name">招商中证白酒</div><div class="market-price">--</div><div class="market-unit">元</div></div>
-                </div>
-                <a href="http://fund.eastmoney.com/" target="_blank" class="live-btn">🔗 查看实时净值</a>
-                <div class="disclaimer">⚠️ 点击按钮跳转天天基金网查看实时净值</div>
+                <div class="disclaimer">⚠️ 点击按钮跳转官方平台查看实时数据</div>
             </div>
             <div class="card">
                 <div class="card-title">📰 行业动态</div>
@@ -118,46 +109,51 @@
                     <div class="news-tab active" onclick="showNews('finance')">💰 金融</div>
                     <div class="news-tab" onclick="showNews('ai')">🤖 AI</div>
                     <div class="news-tab" onclick="showNews('tea')">🧋 茶饮</div>
+                    <div class="news-tab" onclick="showNews('global')">🌍 国际</div>
                 </div>
                 <div id="newsList" class="news-list"></div>
             </div>
             <div class="card">
                 <div class="card-title">💡 今日建议</div>
                 <div class="advice-box">
-                    <div class="advice-item"><strong>短期：</strong>观望为主，关注科技、消费板块</div>
-                    <div class="advice-item"><strong>中期：</strong>股票 60% + 债券 30% + 黄金 10%</div>
-                    <div class="advice-item"><strong>长期：</strong>坚持定投，看好消费升级趋势</div>
+                    <div class="advice-item"><strong>📊 市场观点：</strong>震荡整理，关注科技、消费板块机会</div>
+                    <div class="advice-item"><strong>⚖️ 资产配置：</strong>股票 60% + 债券 30% + 黄金 10%</div>
+                    <div class="advice-item"><strong>🎯 操作策略：</strong>逢低布局，避免追高，坚持定投</div>
                 </div>
                 <div class="disclaimer">⚠️ 以上建议仅供参考，不构成投资建议。市场有风险，投资需谨慎。</div>
             </div>
+            <div class="card">
+                <div class="card-title">🚀 快捷入口</div>
+                <div class="quick-links">
+                    <a href="https://www.chinanews.com.cn/cj/" target="_blank" class="quick-link">📰 财经新闻</a>
+                    <a href="https://xueqiu.com/" target="_blank" class="quick-link">💬 雪球社区</a>
+                    <a href="https://www.jin10.com/" target="_blank" class="quick-link">⚡ 金十数据</a>
+                    <a href="https://wallstreetcn.com/" target="_blank" class="quick-link">📈 华尔街见闻</a>
+                    <a href="https://www.1234567.com.cn/" target="_blank" class="quick-link">💰 天天基金</a>
+                    <a href="https://stockapp.eastmoney.com/" target="_blank" class="quick-link">📊 东方财富</a>
+                </div>
+            </div>
         </div>
+        <!-- 知识库 -->
         <div id="knowledge" class="section">
             <div class="card">
                 <div class="card-title">📚 理财知识库</div>
                 <div class="filter-bar">
                     <button class="filter-btn active" onclick="filter('all')">全部</button>
-                    <button class="filter-btn" onclick="filter('入门')">入门</button>
-                    <button class="filter-btn" onclick="filter('工具')">工具</button>
-                    <button class="filter-btn" onclick="filter('策略')">策略</button>
-                    <button class="filter-btn" onclick="filter('风险')">风险</button>
+                    <button class="filter-btn" onclick="filter('入门')">🌱 入门</button>
+                    <button class="filter-btn" onclick="filter('基金')">📈 基金</button>
+                    <button class="filter-btn" onclick="filter('股票')">💹 股票</button>
+                    <button class="filter-btn" onclick="filter('配置')">⚖️ 配置</button>
                 </div>
                 <div id="articleList" class="article-list"></div>
             </div>
         </div>
+        <!-- 文章详情 -->
         <div id="article" class="section">
             <button class="back-btn" onclick="showSection('knowledge')">← 返回列表</button>
             <div id="articleContent" class="article-content"></div>
         </div>
-        <div id="market" class="section">
-            <div class="card">
-                <div class="card-title">📊 更多行情</div>
-                <div class="market-grid">
-                    <div class="market-card"><div class="market-name">腾讯控股</div><div class="market-price">--</div><div class="market-unit">港元</div></div>
-                    <div class="market-card"><div class="market-name">贵州茅台</div><div class="market-price">--</div><div class="market-unit">元</div></div>
-                </div>
-                <a href="https://quote.eastmoney.com/center/gridlist.html" target="_blank" class="live-btn">🔗 查看实时行情</a>
-            </div>
-        </div>
+        <!-- 平台推荐 -->
         <div id="platform" class="section">
             <div class="card">
                 <div class="card-title">🏆 理财平台推荐</div>
@@ -182,41 +178,123 @@
                     </div>
                     <div class="tags"><span class="tag tag-purple">专业</span><span class="tag tag-blue">费率低</span></div>
                 </div>
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div><div class="platform-name">🏅 东方财富</div><div class="platform-score">综合评分：90/100</div></div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="tags"><span class="tag tag-purple">数据全</span><span class="tag tag-blue">资讯快</span></div>
+                </div>
             </div>
         </div>
     </div>
     <div class="bottom-nav">
         <div class="nav-item active" onclick="showSection('home')"><div class="nav-icon">🏠</div><div>首页</div></div>
         <div class="nav-item" onclick="showSection('knowledge')"><div class="nav-icon">📚</div><div>知识库</div></div>
-        <div class="nav-item" onclick="showSection('market')"><div class="nav-icon">📊</div><div>市场</div></div>
-        <div class="nav-item" onclick="showSection('platform')"><div class="nav-icon">🏆</div><div>推荐</div></div>
+        <div class="nav-item" onclick="showSection('platform')"><div class="nav-icon">🏆</div><div>平台</div></div>
     </div>
     <div class="footer">⚠️ 投资有风险，决策需谨慎<br>本应用仅提供信息参考，不构成投资建议</div>
     <script>
-        const articles=[
-            {c:'入门',t:'什么是理财？',s:'理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。',content:'<h1>什么是理财？</h1><p>理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。理财不仅仅是投资，还包括储蓄、保险、税务规划等多个方面。</p><h2>理财的核心目标</h2><ol><li>保障日常生活开支</li><li>应对突发事件</li><li>实现财富增值</li><li>为未来目标做准备（如购房、教育、养老）</li></ol><h2>理财的基本原则</h2><ul><li><strong>量入为出：</strong>支出不要超过收入</li><li><strong>分散投资：</strong>不要把鸡蛋放在一个篮子里</li><li><strong>长期思维：</strong>理财是马拉松，不是短跑</li><li><strong>风险匹配：</strong>选择与自己风险承受能力匹配的产品</li></ul>'},
-            {c:'入门',t:'复利效应',s:'被爱因斯坦称为"世界第八大奇迹"。复利公式：FV = PV × (1 + r)^n',content:'<h1>复利效应：世界第八大奇迹</h1><p>复利是指利息再生利息的效果，被爱因斯坦称为"世界第八大奇迹"。</p><h2>复利公式</h2><p><strong>FV = PV × (1 + r)^n</strong></p><ul><li>FV：未来价值</li><li>PV：现值（本金）</li><li>r：年化收益率</li><li>n：投资年限</li></ul><h2>复利的威力</h2><p>每月定投 1000 元，年化 8%，30 年后本息合计约 150 万元（本金只有 36 万）</p>'},
-            {c:'入门',t:'紧急备用金',s:'理财的基石，应对突发事件的专项资金。建议 3-6 个月生活费。',content:'<h1>紧急备用金：理财的基石</h1><p>紧急备用金是应对突发事件的专项资金，是理财的第一步。</p><h2>建议金额</h2><ul><li>单身：3-6 个月生活费</li><li>已婚：6-12 个月生活费</li></ul><h2>存放位置</h2><p>货币基金（余额宝、零钱通）、银行活期</p>'},
-            {c:'工具',t:'基金分类',s:'货币基金 R1、债券基金 R2、混合基金 R3、股票基金 R4、指数基金 R3',content:'<h1>基金分类大全</h1><table><tr><th>类型</th><th>风险</th><th>收益</th><th>适合人群</th></tr><tr><td>货币基金</td><td>R1</td><td>2-3%</td><td>现金管理</td></tr><tr><td>债券基金</td><td>R2</td><td>3-5%</td><td>稳健型</td></tr><tr><td>混合基金</td><td>R3</td><td>6-12%</td><td>平衡型</td></tr><tr><td>股票基金</td><td>R4</td><td>8-15%</td><td>进取型</td></tr><tr><td>指数基金</td><td>R3</td><td>跟随指数</td><td>长期定投</td></tr></table>'},
-            {c:'工具',t:'如何挑选基金',s:'5 个关键指标：历史业绩、基金经理、基金规模、费率、基金公司',content:'<h1>如何挑选基金：5 个关键指标</h1><h2>1. 历史业绩</h2><p>看 3 年、5 年长期业绩，不要只看最近 1 年。</p><h2>2. 基金经理</h2><p>从业年限 5 年以上为佳，管理规模 10-100 亿适中。</p><h2>3. 基金规模</h2><p>太小（<2 亿）可能清盘，太大（>100 亿）操作困难。</p>'},
-            {c:'工具',t:'指数基金',s:'最适合新手的投资工具。分散风险、费用低廉、透明度高、长期上涨',content:'<h1>指数基金：最适合新手的投资工具</h1><h2>优势</h2><ul><li>✅ 分散风险：买入一篮子股票</li><li>✅ 费用低廉：管理费通常 0.5% 以下</li><li>✅ 透明度高：成分股公开</li><li>✅ 长期上涨：跟随经济发展</li><li>✅ 无需选股：省心省力</li></ul><h2>主流指数</h2><ul><li>沪深 300：A 股大盘股代表</li><li>中证 500：A 股中盘股代表</li><li>创业板指：成长股代表</li></ul>'},
-            {c:'工具',t:'股票投资基础',s:'核心概念：市盈率 PE、市净率 PB、股息率、ROE',content:'<h1>股票投资基础</h1><h2>核心概念</h2><ul><li><strong>市盈率（PE）：</strong>股价/每股收益，衡量估值高低</li><li><strong>市净率（PB）：</strong>股价/每股净资产</li><li><strong>股息率：</strong>年度分红/股价，衡量现金回报</li><li><strong>ROE：</strong>净资产收益率，衡量公司盈利能力</li></ul><h2>新手建议</h2><ol><li>先学习基础知识</li><li>用闲钱投资</li><li>从指数基金开始</li><li>长期持有</li><li>分散投资</li></ol>'},
-            {c:'工具',t:'保险配置',s:'必备保险：医疗险、重疾险、意外险、定期寿险',content:'<h1>保险配置指南</h1><h2>必备保险</h2><ol><li><strong>医疗险：</strong>报销医疗费用，建议保额 100 万+</li><li><strong>重疾险：</strong>确诊即赔，建议保额 30-50 万</li><li><strong>意外险：</strong>保障意外身故/伤残，建议保额 100 万+</li><li><strong>定期寿险：</strong>家庭经济支柱必备</li></ol><h2>配置原则</h2><ul><li>先保障后理财</li><li>先大人后小孩</li><li>保额要充足</li></ul>'},
-            {c:'策略',t:'基金定投',s:'懒人理财神器。优势：分散风险、平摊成本、强制储蓄、省时省力',content:'<h1>基金定投：懒人理财神器</h1><h2>优势</h2><ul><li>分散风险：分批买入，避免一次性买在高点</li><li>平摊成本：市场波动时自动低吸高抛</li><li>强制储蓄：培养良好的理财习惯</li><li>省时省力：设置自动扣款</li></ul><h2>定投策略</h2><ul><li>普通定投：固定金额，固定时间</li><li>智能定投：根据市场估值调整</li><li>目标止盈：达到目标收益率后赎回</li></ul>'},
-            {c:'策略',t:'资产配置',s:'不要把鸡蛋放在一个篮子里。标准普尔模型',content:'<h1>资产配置：不要把鸡蛋放在一个篮子里</h1><h2>标准普尔家庭资产象限图</h2><ul><li>10% 要花的钱：日常开销</li><li>20% 保命的钱：保险保障</li><li>30% 生钱的钱：股票、基金等</li><li>40% 保本的钱：债券、存款等</li></ul><h2>年龄配置法</h2><p>股票比例 = (100 - 年龄)%</p>'},
-            {c:'策略',t:'理财规划',s:'不同年龄段配置建议',content:'<h1>理财规划：不同人生阶段的配置</h1><table><tr><th>年龄段</th><th>特点</th><th>配置建议</th></tr><tr><td>20-30 岁</td><td>积累期</td><td>70% 股票 +30% 债券</td></tr><tr><td>30-40 岁</td><td>成长期</td><td>60% 股票 +30% 债券 +10% 黄金</td></tr><tr><td>40-50 岁</td><td>成熟期</td><td>50% 股票 +40% 债券 +10% 现金</td></tr><tr><td>50 岁+</td><td>退休期</td><td>30% 股票 +50% 债券 +20% 现金</td></tr></table>'},
-            {c:'风险',t:'风险管理',s:'风险类型：市场风险、个股风险、流动性风险、通胀风险',content:'<h1>风险管理：投资的第一课</h1><h2>风险类型</h2><ul><li>市场风险：整体市场下跌</li><li>个股风险：单只股票暴雷</li><li>流动性风险：急用钱时无法变现</li><li>通胀风险：钱贬值的速度超过投资收益</li></ul><h2>管理方法</h2><ul><li>分散投资</li><li>止损策略</li><li>仓位控制</li><li>长期投资</li></ul>'},
-            {c:'风险',t:'通货膨胀',s:'你的钱在悄悄贬值。对抗通胀：投资优质资产、提升自身能力',content:'<h1>通货膨胀：你的钱在悄悄贬值</h1><h2>通胀的影响</h2><ul><li>100 元今天的购买力，10 年后可能只值 70 元</li><li>把钱存银行，如果利率低于通胀率，实际在亏钱</li></ul><h2>对抗通胀</h2><ol><li>投资优质资产</li><li>提升自身能力</li><li>合理负债</li><li>配置黄金</li></ol>'},
-            {c:'风险',t:'投资心理',s:'战胜人性弱点。常见误区：贪婪、恐惧、从众、过度自信',content:'<h1>投资心理：战胜人性弱点</h1><h2>常见误区</h2><ul><li><strong>贪婪：</strong>追涨杀跌 → 设定止盈</li><li><strong>恐惧：</strong>市场下跌不敢买入 → 坚持定投</li><li><strong>从众：</strong>别人买什么就买什么 → 独立思考</li><li><strong>过度自信：</strong>觉得自己能战胜市场 → 选择指数基金</li></ul>'},
-            {c:'风险',t:'定投误区',s:'三大误区：亏损就停止、频繁更换、期望暴富',content:'<h1>定投的三大误区</h1><h2>误区 1：亏损就停止</h2><p>❌ 错误：市场下跌就不敢投</p><p>✅ 正确：下跌时更应该坚持</p><h2>误区 2：频繁更换</h2><p>❌ 错误：看到别的基金涨得好就换</p><p>✅ 正确：选定优质基金，长期坚持</p><h2>误区 3：期望暴富</h2><p>❌ 错误：指望一两年翻倍</p><p>✅ 正确：定投是长期策略，至少 3-5 年</p>'}
+        const newsData = {
+            finance: [
+                {t: '"十五五"规划纲要发布，109 项重大工程将改变你的钱袋子', s: '中新网', time: '10 分钟前', u: 'https://www.chinanews.com.cn/cj/', hot: true},
+                {t: '央行开展 5000 亿元逆回购操作，释放流动性', s: '央行官网', time: '30 分钟前', u: 'https://www.pbc.gov.cn/', hot: true},
+                {t: '证监会：加强资本市场基础制度建设', s: '证监会', time: '1 小时前', u: 'http://www.csrc.gov.cn/', hot: false},
+                {t: 'A 股成交量创近期新高，市场情绪回暖', s: '证券时报', time: '2 小时前', u: 'http://www.stcn.com/', hot: false},
+                {t: '房贷利率下调，购房者迎来利好', s: '财经网', time: '3 小时前', u: 'https://www.caijing.com.cn/', hot: false},
+                {t: '银行理财业务规范发展，保护投资者权益', s: '银保监会', time: '4 小时前', u: 'https://www.cbirc.gov.cn/', hot: false},
+            ],
+            ai: [
+                {t: 'OpenAI 发布 GPT-5，AI 能力再升级', s: '36 氪', time: '15 分钟前', u: 'https://36kr.com/', hot: true},
+                {t: '国产大模型竞争激烈，谁能脱颖而出？', s: '机器之心', time: '1 小时前', u: 'https://www.jiqizhixin.com/', hot: true},
+                {t: 'AI 赋能金融行业，智能投顾成新趋势', s: '钛媒体', time: '2 小时前', u: 'https://www.tmtpost.com/', hot: false},
+                {t: '自动驾驶技术突破，特斯拉 FSD 入华', s: '晚点 LatePost', time: '3 小时前', u: 'https://www.postlate.com/', hot: false},
+                {t: 'AI 芯片需求爆发，英伟达股价创新高', s: '界面新闻', time: '4 小时前', u: 'https://www.jiemian.com/', hot: false},
+                {t: '微软 Copilot 用户破亿，AI 助手普及加速', s: '品玩', time: '5 小时前', u: 'https://www.pinwan.com/', hot: false},
+            ],
+            tea: [
+                {t: '2026 新式茶饮消费趋势报告发布，健康化成主流', s: '联商网', time: '20 分钟前', u: 'https://www.linkshop.com.cn/', hot: true},
+                {t: '喜茶推出春季限定新品，樱花系列上市', s: '餐饮界', time: '1 小时前', u: 'https://www.canyinj.com/', hot: false},
+                {t: '奈雪的茶门店突破 1000 家，下沉市场加速', s: '赢商网', time: '2 小时前', u: 'https://www.winshang.com/', hot: false},
+                {t: '茶颜悦色进军海外市场，首店落户新加坡', s: '食品商务网', time: '3 小时前', u: 'https://www.21food.cn/', hot: false},
+                {t: '新式茶饮原料成本上涨，品牌如何应对？', s: '红餐网', time: '4 小时前', u: 'https://www.hongcan.com/', hot: false},
+                {t: '霸王茶姬完成新一轮融资，估值超百亿', s: '投资界', time: '5 小时前', u: 'https://www.pedaily.cn/', hot: false},
+            ],
+            global: [
+                {t: '美联储维持利率不变，通胀仍高于目标', s: '华尔街见闻', time: '30 分钟前', u: 'https://wallstreetcn.com/', hot: true},
+                {t: '欧洲央行暗示可能降息，欧元走弱', s: '金十数据', time: '1 小时前', u: 'https://www.jin10.com/', hot: true},
+                {t: '日本股市创历史新高，日经指数突破 42000 点', s: '彭博社', time: '2 小时前', u: 'https://www.bloomberg.com/', hot: false},
+                {t: '国际油价波动，OPEC+ 讨论增产计划', s: '路透社', time: '3 小时前', u: 'https://www.reuters.com/', hot: false},
+                {t: '全球科技股普涨，纳斯达克指数创新高', s: 'CNBC', time: '4 小时前', u: 'https://www.cnbc.com/', hot: false},
+                {t: '新兴市场货币走强，资金流入加速', s: '金融时报', time: '5 小时前', u: 'https://www.ft.com/', hot: false},
+            ]
+        };
+        const articles = [
+            {c:'入门',t:'什么是理财？',s:'理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。',content:'<h1>什么是理财？</h1><p>理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。理财不仅仅是投资，还包括储蓄、保险、税务规划等多个方面。</p><h2>理财的核心目标</h2><ol><li>保障日常生活开支</li><li>应对突发事件（紧急备用金）</li><li>实现财富增值</li><li>为未来目标做准备（购房、教育、养老）</li></ol><h2>理财的基本原则</h2><ul><li><strong>量入为出：</strong>支出不要超过收入，先储蓄后消费</li><li><strong>分散投资：</strong>不要把鸡蛋放在一个篮子里</li><li><strong>长期思维：</strong>理财是马拉松，不是短跑</li><li><strong>风险匹配：</strong>选择与自己风险承受能力匹配的产品</li><li><strong>持续学习：</strong>市场在变，知识需要更新</li></ul>'},
+            {c:'入门',t:'复利效应：世界第八大奇迹',s:'被爱因斯坦称为"世界第八大奇迹"。复利公式：FV = PV × (1 + r)^n',content:'<h1>复利效应：世界第八大奇迹</h1><p>复利是指利息再生利息的效果，被爱因斯坦称为"世界第八大奇迹"。</p><h2>复利公式</h2><p><strong>FV = PV × (1 + r)^n</strong></p><ul><li>FV：未来价值（Future Value）</li><li>PV：现值/本金（Present Value）</li><li>r：年化收益率</li><li>n：投资年限</li></ul><h2>复利的威力</h2><p>每月定投 1000 元，年化 8%，30 年后本息合计约 150 万元（本金只有 36 万）</p><h2>启动复利的关键</h2><ol><li><strong>尽早开始：</strong>时间越长，复利效应越明显</li><li><strong>保持稳定：</strong>持续投入，不要中断</li><li><strong>追求合理收益：</strong>年化 8-12% 是可行目标</li></ol>'},
+            {c:'入门',t:'紧急备用金：理财的基石',s:'理财的第一步，应对突发事件的专项资金。建议 3-6 个月生活费。',content:'<h1>紧急备用金：理财的基石</h1><p>紧急备用金是应对突发事件的专项资金，是理财的第一步，必须在开始投资前准备好。</p><h2>建议金额</h2><ul><li>单身：3-6 个月生活费</li><li>已婚：6-12 个月生活费</li><li>自由职业：12 个月以上</li></ul><h2>存放位置</h2><ul><li>货币基金（余额宝、零钱通）</li><li>银行活期存款</li><li>短期理财产品（7 天以内）</li></ul><h2>使用原则</h2><ol><li>只用于真正的紧急情况（医疗、失业等）</li><li>使用后尽快补足</li><li>不要用于投资或消费</li></ol>'},
+            {c:'基金',t:'基金分类大全',s:'货币基金 R1、债券基金 R2、混合基金 R3、股票基金 R4、指数基金 R3',content:'<h1>基金分类大全</h1><table style="width:100%;border-collapse:collapse;"><tr style="background:#f0f5ff;"><th style="padding:10px;border:1px solid #d9d9d9;">类型</th><th style="padding:10px;border:1px solid #d9d9d9;">风险</th><th style="padding:10px;border:1px solid #d9d9d9;">预期收益</th><th style="padding:10px;border:1px solid #d9d9d9;">适合人群</th></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">货币基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R1（低）</td><td style="padding:10px;border:1px solid #d9d9d9;">2-3%</td><td style="padding:10px;border:1px solid #d9d9d9;">现金管理</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">债券基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R2（中低）</td><td style="padding:10px;border:1px solid #d9d9d9;">3-5%</td><td style="padding:10px;border:1px solid #d9d9d9;">稳健型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">混合基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R3（中）</td><td style="padding:10px;border:1px solid #d9d9d9;">6-12%</td><td style="padding:10px;border:1px solid #d9d9d9;">平衡型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">股票基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R4（中高）</td><td style="padding:10px;border:1px solid #d9d9d9;">8-15%</td><td style="padding:10px;border:1px solid #d9d9d9;">进取型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">指数基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R3（中）</td><td style="padding:10px;border:1px solid #d9d9d9;">跟随指数</td><td style="padding:10px;border:1px solid #d9d9d9;">长期定投</td></tr></table>'},
+            {c:'基金',t:'如何挑选基金：5 个关键指标',s:'历史业绩、基金经理、基金规模、费率、基金公司',content:'<h1>如何挑选基金：5 个关键指标</h1><h2>1. 历史业绩</h2><ul><li>看 3 年、5 年长期业绩，不要只看最近 1 年</li><li>对比同类基金和业绩基准</li><li>关注最大回撤（风险承受能力）</li></ul><h2>2. 基金经理</h2><ul><li>从业年限 5 年以上为佳</li><li>管理规模 10-100 亿适中</li><li>历史业绩稳定，风格不漂移</li></ul><h2>3. 基金规模</h2><ul><li>太小（<2 亿）可能清盘</li><li>太大（>100 亿）操作困难</li><li>20-50 亿较为理想</li></ul><h2>4. 费率</h2><ul><li>管理费：1-1.5%/年</li><li>托管费：0.1-0.25%/年</li><li>申购费：1-1.5%（可打一折）</li></ul><h2>5. 基金公司</h2><ul><li>选择大型知名基金公司</li><li>公司整体投研实力</li><li>产品线是否丰富</li></ul>'},
+            {c:'基金',t:'指数基金：最适合新手的投资工具',s:'分散风险、费用低廉、透明度高、长期上涨',content:'<h1>指数基金：最适合新手的投资工具</h1><h2>四大优势</h2><ul><li>✅ <strong>分散风险：</strong>买入一篮子股票，避免个股暴雷</li><li>✅ <strong>费用低廉：</strong>管理费通常 0.5% 以下，主动基金 1/3</li><li>✅ <strong>透明度高：</strong>成分股公开，规则明确</li><li>✅ <strong>长期上涨：</strong>跟随经济发展，长期趋势向上</li></ul><h2>主流指数</h2><ul><li><strong>沪深 300：</strong>A 股大盘股代表，中国经济晴雨表</li><li><strong>中证 500：</strong>A 股中盘股代表，成长性强</li><li><strong>创业板指：</strong>成长股代表，波动大收益高</li><li><strong>恒生指数：</strong>港股大盘，估值较低</li><li><strong>标普 500：</strong>美股大盘，全球配置</li></ul><h2>定投策略</h2><p>每月固定日期投入固定金额，长期持有（3-5 年以上）</p>'},
+            {c:'股票',t:'股票投资基础：核心概念',s:'市盈率 PE、市净率 PB、股息率、ROE',content:'<h1>股票投资基础：核心概念</h1><h2>市盈率（PE）</h2><p><strong>PE = 股价 / 每股收益</strong></p><ul><li>衡量估值高低</li><li>PE 越低，理论上越便宜</li><li>不同行业 PE 不同，要横向对比</li></ul><h2>市净率（PB）</h2><p><strong>PB = 股价 / 每股净资产</strong></p><ul><li>适合重资产行业（银行、钢铁）</li><li>PB<1 可能低估，也可能有问题</li></ul><h2>股息率</h2><p><strong>股息率 = 年度分红 / 股价</strong></p><ul><li>衡量现金回报</li><li>银行股通常 5-7%</li><li>成长股通常很低或不分红</li></ul><h2>ROE（净资产收益率）</h2><p><strong>ROE = 净利润 / 净资产</strong></p><ul><li>衡量公司盈利能力</li><li>ROE>15% 为优秀</li><li>长期维持高 ROE 的公司很少</li></ul>'},
+            {c:'股票',t:'新手投资建议',s:'先学习、用闲钱、从指数基金开始、长期持有、分散投资',content:'<h1>新手投资建议</h1><h2>五条黄金法则</h2><ol><li><strong>先学习基础知识</strong><br>不要盲目跟风，理解自己在买什么</li><li><strong>用闲钱投资</strong><br>只用 3-5 年不用的钱投资，避免被迫割肉</li><li><strong>从指数基金开始</strong><br>不要一开始就炒个股，指数基金更适合新手</li><li><strong>长期持有</strong><br>短期波动无法预测，长期趋势相对确定</li><li><strong>分散投资</strong><br>不要 All in 一只股票或一个行业</li></ol><h2>常见误区</h2><ul><li>❌ 追涨杀跌</li><li>❌ 听消息炒股</li><li>❌ 频繁交易</li><li>❌ 借钱投资</li><li>❌ 想一夜暴富</li></ul>'},
+            {c:'配置',t:'资产配置：不要把鸡蛋放在一个篮子里',s:'标准普尔模型、年龄配置法',content:'<h1>资产配置：不要把鸡蛋放在一个篮子里</h1><h2>标准普尔家庭资产象限图</h2><ul><li><strong>10% 要花的钱：</strong>日常开销（3-6 个月生活费）</li><li><strong>20% 保命的钱：</strong>保险保障（医疗、重疾、意外）</li><li><strong>30% 生钱的钱：</strong>股票、基金等（追求增值）</li><li><strong>40% 保本的钱：</strong>债券、存款等（稳健保值）</li></ul><h2>年龄配置法</h2><p><strong>股票比例 = (100 - 年龄)%</strong></p><ul><li>25 岁：75% 股票 + 25% 债券</li><li>35 岁：65% 股票 + 35% 债券</li><li>45 岁：55% 股票 + 45% 债券</li><li>55 岁：45% 股票 + 55% 债券</li></ul><h2>再平衡策略</h2><p>每年调整一次，恢复目标配置比例</p>'},
+            {c:'配置',t:'基金定投：懒人理财神器',s:'分散风险、平摊成本、强制储蓄、省时省力',content:'<h1>基金定投：懒人理财神器</h1><h2>四大优势</h2><ul><li><strong>分散风险：</strong>分批买入，避免一次性买在高点</li><li><strong>平摊成本：</strong>市场波动时自动低吸高抛</li><li><strong>强制储蓄：</strong>培养良好的理财习惯</li><li><strong>省时省力：</strong>设置自动扣款，无需择时</li></ul><h2>定投策略</h2><ul><li><strong>普通定投：</strong>固定金额，固定时间（推荐每月发工资后）</li><li><strong>智能定投：</strong>根据市场估值调整金额（低估多投，高估少投）</li><li><strong>目标止盈：</strong>达到目标收益率后赎回（如 20%、30%）</li></ul><h2>定投误区</h2><ul><li>❌ 亏损就停止（应该坚持）</li><li>❌ 频繁更换基金（选定优质基金长期坚持）</li><li>❌ 期望暴富（定投是长期策略，至少 3-5 年）</li></ul>'},
+            {c:'配置',t:'理财规划：不同人生阶段的配置',s:'20-30 岁积累期、30-40 岁成长期、40-50 岁成熟期、50 岁 + 退休期',content:'<h1>理财规划：不同人生阶段的配置</h1><table style="width:100%;border-collapse:collapse;"><tr style="background:#f0f5ff;"><th style="padding:10px;border:1px solid #d9d9d9;">年龄段</th><th style="padding:10px;border:1px solid #d9d9d9;">特点</th><th style="padding:10px;border:1px solid #d9d9d9;">配置建议</th></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">20-30 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">积累期<br>收入增长快<br>风险承受强</td><td style="padding:10px;border:1px solid #d9d9d9;">70% 股票 + 30% 债券<br>重点投资自己<br>养成储蓄习惯</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">30-40 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">成长期<br>收入稳定<br>家庭责任重</td><td style="padding:10px;border:1px solid #d9d9d9;">60% 股票 + 30% 债券 + 10% 黄金<br>配置保险<br>准备子女教育金</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">40-50 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">成熟期<br>收入高峰<br>养老规划</td><td style="padding:10px;border:1px solid #d9d9d9;">50% 股票 + 40% 债券 + 10% 现金<br>加大养老储备<br>降低风险敞口</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">50 岁+</td><td style="padding:10px;border:1px solid #d9d9d9;">退休期<br>收入下降<br>保本为主</td><td style="padding:10px;border:1px solid #d9d9d9;">30% 股票 + 50% 债券 + 20% 现金<br>以保本为主<br>确保稳定现金流</td></tr></table>'},
         ];
-        const newsData={finance:[{t:'"十五五"规划纲要发布，109 项重大工程将改变你的钱袋子',s:'中新网',time:'10 分钟前',u:'https://www.chinanews.com.cn/cj/2026/03-13/10586612.shtml'},{t:'央行开展 5000 亿元逆回购操作，释放流动性',s:'央行官网',time:'30 分钟前',u:'https://www.chinanews.com.cn/cj/2026/03-13/10586571.shtml'},{t:'3·15 消费维权典型案例公布，这些陷阱要避开',s:'市场监管总局',time:'1 小时前',u:'https://www.chinanews.com.cn/sh/2026/03-13/10586539.shtml'},{t:'证监会：加强资本市场基础制度建设',s:'证监会',time:'2 小时前',u:'https://www.chinanews.com.cn/cj/2026/03-13/10586614.shtml'},{t:'银保监会：规范银行理财业务发展',s:'银保监会',time:'3 小时前',u:'https://www.chinanews.com.cn/cj/2026/03-13/10586564.shtml'},{t:'A 股成交量创近期新高，市场情绪回暖',s:'证券时报',time:'4 小时前',u:'https://www.chinanews.com.cn/cj/2026/03-13/10586535.shtml'},{t:'房贷利率下调，购房者迎来利好',s:'财经网',time:'5 小时前',u:'https://www.chinanews.com.cn/cj/2026/03-13/10586594.shtml'}],ai:[{t:'OpenAI 发布 GPT-5，AI 能力再升级',s:'36 氪',time:'15 分钟前',u:'https://36kr.com/'},{t:'国产大模型竞争激烈，谁能脱颖而出？',s:'机器之心',time:'1 小时前',u:'https://www.jiqizhixin.com/'},{t:'AI 赋能金融行业，智能投顾成新趋势',s:'钛媒体',time:'2 小时前',u:'https://www.tmtpost.com/'},{t:'自动驾驶技术突破，特斯拉 FSD 入华',s:'晚点 LatePost',time:'3 小时前',u:'https://www.postlate.com/'},{t:'AI 芯片需求爆发，英伟达股价创新高',s:'界面新闻',time:'4 小时前',u:'https://www.jiemian.com/'},{t:'微软 Copilot 用户破亿，AI 助手普及加速',s:'品玩',time:'5 小时前',u:'https://www.pinwan.com/'},{t:'AI 生成内容版权争议，法律如何界定？',s:'虎嗅',time:'6 小时前',u:'https://www.huxiu.com/'}],tea:[{t:'2026 新式茶饮消费趋势报告发布，健康化成主流',s:'联商网',time:'20 分钟前',u:'https://www.linkshop.com.cn/'},{t:'喜茶推出春季限定新品，樱花系列上市',s:'餐饮界',time:'1 小时前',u:'https://www.canyinj.com/'},{t:'奈雪的茶门店突破 1000 家，下沉市场加速',s:'赢商网',time:'2 小时前',u:'https://www.winshang.com/'},{t:'茶颜悦色进军海外市场，首店落户新加坡',s:'食品商务网',time:'3 小时前',u:'https://www.21food.cn/'},{t:'新式茶饮原料成本上涨，品牌如何应对？',s:'红餐网',time:'4 小时前',u:'https://www.hongcan.com/'},{t:'霸王茶姬完成新一轮融资，估值超百亿',s:'投资界',time:'5 小时前',u:'https://www.pedaily.cn/'},{t:'茶饮行业竞争加剧，差异化成破局关键',s:'职业餐饮网',time:'6 小时前',u:'https://www.canyin88.com/'}]};
-        function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById(id).classList.add('active');event.currentTarget.classList.add('active');window.scrollTo(0,0);}
-        function renderArticles(filter='all'){const list=document.getElementById('articleList');list.innerHTML=articles.filter(a=>filter==='all'||a.c===filter).map((a,i)=>'<div class="article-card" onclick="showArticle('+articles.indexOf(a)+')"><div class="article-title">'+a.t+'</div><div class="article-summary">'+a.s+'</div><div class="article-meta"><span>📖 '+a.c+'</span><span>点击阅读 →</span></div></div>').join('');}
-        function filter(cat){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');renderArticles(cat==='all'?'all':cat);}
-        function showArticle(index){const article=articles[index];document.getElementById('articleContent').innerHTML=article.content;document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('article').classList.add('active');window.scrollTo(0,0);}
-        function showNews(category){document.querySelectorAll('.news-tab').forEach(t=>t.classList.remove('active'));event.target.classList.add('active');const list=document.getElementById('newsList');list.innerHTML=newsData[category].map(n=>'<div class="news-item"><div class="news-title"><a href="'+n.u+'" target="_blank">'+n.t+'</a></div><div class="news-meta"><span class="news-source">'+n.s+'</span><span>'+n.time+'</span></div></div>').join('');}
-        function updateTime(){const now=new Date();const options={year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false};const weekday=['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];document.getElementById('datetime').textContent=now.toLocaleDateString('zh-CN',options)+' '+weekday;}
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        function renderArticles(filter = 'all') {
+            const list = document.getElementById('articleList');
+            list.innerHTML = articles.filter(a => filter === 'all' || a.c === filter)
+                .map((a, i) => `
+                    <div class="article-card" onclick="showArticle(${articles.indexOf(a)})">
+                        <div class="article-title">${a.t}</div>
+                        <div class="article-summary">${a.s}</div>
+                        <div class="article-meta">
+                            <span class="article-tag">📖 ${a.c}</span>
+                            <span>点击阅读 →</span>
+                        </div>
+                    </div>
+                `).join('');
+        }
+        function filter(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            renderArticles(cat === 'all' ? 'all' : cat);
+        }
+        function showArticle(index) {
+            const article = articles[index];
+            document.getElementById('articleContent').innerHTML = article.content;
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById('article').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        function showNews(category) {
+            document.querySelectorAll('.news-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            const list = document.getElementById('newsList');
+            list.innerHTML = newsData[category].map(n => `
+                <div class="news-item">
+                    <div class="news-title"><a href="${n.u}" target="_blank">${n.t}</a></div>
+                    <div class="news-meta">
+                        <span class="${n.hot ? 'news-hot' : 'news-source'}">${n.hot ? '🔥 热门' : n.s}</span>
+                        <span>${n.time}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        function updateTime() {
+            const now = new Date();
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false };
+            const weekday = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][now.getDay()];
+            document.getElementById('datetime').textContent = now.toLocaleDateString('zh-CN', options) + ' ' + weekday;
+        }
         updateTime();
         setInterval(updateTime, 60000);
         renderArticles();
