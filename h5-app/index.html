@@ -489,9 +489,13 @@
                 .then(r => r.json())
                 .then(data => {
                     document.getElementById('lastUpdate').textContent = '最后更新：' + data.update_time;
+                    // 同时更新新闻数据
+                    window.newsData = data.news;
+                    renderNews('finance');
                 })
                 .catch(e => {
-                    document.getElementById('lastUpdate').textContent = '最后更新：未知';
+                    console.error('加载新闻失败:', e);
+                    document.getElementById('lastUpdate').textContent = '最后更新：加载中...';
                 });
         }
         function updateTime() {
