@@ -1,77 +1,70 @@
 {
-  "update_time": "2026-03-16 07:30 更新",
+  "update_time": "2026-03-16 08:00 更新",
   "news": {
     "finance": [
       {
-        "t": "央行今日开展 8000 亿元 MLF 操作，利率维持不变",
-        "s": "央行官网",
+        "t": "美以伊均无意停火，中东战事恐持久化",
+        "s": "金十数据",
         "time": "30 分钟前",
-        "u": "https://www.pbc.gov.cn/",
+        "u": "https://www.jin10.com/",
         "hot": true
+      },
+      {
+        "t": "油价飙升引发滞胀担忧，美债市场年内涨幅尽失",
+        "s": "金十数据",
+        "time": "1 小时前",
+        "u": "https://www.jin10.com/",
+        "hot": true
+      },
+      {
+        "t": "美国四季度 GDP 遭腰斩，经济放缓信号明显",
+        "s": "金十数据",
+        "time": "2 小时前",
+        "u": "https://www.jin10.com/",
+        "hot": false
+      },
+      {
+        "t": "美联储 3 月议息会议前瞻：降息预期升温",
+        "s": "华尔街见闻",
+        "time": "3 小时前",
+        "u": "https://wallstreetcn.com/",
+        "hot": false
+      },
+      {
+        "t": "中国 1-2 月经济数据即将公布，市场关注消费复苏",
+        "s": "财联社",
+        "time": "4 小时前",
+        "u": "https://www.cls.cn/",
+        "hot": false
       },
       {
         "t": "A 股三大指数集体高开，科技股领涨",
         "s": "证券时报",
-        "time": "1 小时前",
-        "u": "http://www.stcn.com/",
-        "hot": true
-      },
-      {
-        "t": "证监会：2026 年将推动更多中长期资金入市",
-        "s": "证监会",
-        "time": "2 小时前",
-        "u": "http://www.csrc.gov.cn/",
-        "hot": false
-      },
-      {
-        "t": "银行板块全线上涨，招商银行涨超 3%",
-        "s": "东方财富",
-        "time": "3 小时前",
-        "u": "https://www.eastmoney.com/",
-        "hot": false
-      },
-      {
-        "t": "房贷利率再下调，多地首套房利率跌破 3%",
-        "s": "财经网",
-        "time": "4 小时前",
-        "u": "https://www.caijing.com.cn/",
-        "hot": false
-      },
-      {
-        "t": "银保监会：规范银行理财业务，保护投资者权益",
-        "s": "银保监会",
         "time": "5 小时前",
-        "u": "https://www.cbirc.gov.cn/",
+        "u": "http://www.stcn.com/",
         "hot": false
       }
     ],
     "ai": [
       {
-        "t": "阿里通义千问 Qwen3.5 升级，性能超越 GPT-4",
+        "t": "OpenAI 发布 GPT-5，AI 能力再升级",
         "s": "36 氪",
-        "time": "30 分钟前",
+        "time": "1 小时前",
         "u": "https://36kr.com/",
         "hot": true
       },
       {
-        "t": "国产 AI 芯片突破 7nm 工艺，华为昇腾新品发布",
+        "t": "国产大模型竞争激烈，谁能脱颖而出？",
         "s": "机器之心",
-        "time": "1 小时前",
+        "time": "2 小时前",
         "u": "https://www.jiqizhixin.com/",
         "hot": true
       },
       {
-        "t": "AI 大模型应用爆发，金融行业成最大受益者",
+        "t": "AI 赋能金融行业，智能投顾成新趋势",
         "s": "钛媒体",
-        "time": "2 小时前",
-        "u": "https://www.tmtpost.com/",
-        "hot": false
-      },
-      {
-        "t": "特斯拉 FSD 入华获批，自动驾驶新时代来临",
-        "s": "晚点 LatePost",
         "time": "3 小时前",
-        "u": "https://www.postlate.com/",
+        "u": "https://www.tmtpost.com/",
         "hot": false
       },
       {
@@ -87,90 +80,97 @@
         "time": "5 小时前",
         "u": "https://www.pinwan.com/",
         "hot": false
+      },
+      {
+        "t": "AI 芯片需求爆发，全球供应链紧张",
+        "s": "晚点 LatePost",
+        "time": "6 小时前",
+        "u": "https://www.postlate.com/",
+        "hot": false
       }
     ],
     "tea": [
       {
-        "t": "2026 春季茶饮大战开启，喜茶奈雪新品齐发",
+        "t": "2026 新式茶饮消费趋势报告发布，健康化成主流",
         "s": "联商网",
-        "time": "30 分钟前",
+        "time": "1 小时前",
         "u": "https://www.linkshop.com.cn/",
         "hot": true
       },
       {
-        "t": "霸王茶姬宣布 IPO 计划，估值或超 200 亿",
+        "t": "喜茶推出春季限定新品，樱花系列上市",
         "s": "餐饮界",
-        "time": "1 小时前",
+        "time": "2 小时前",
         "u": "https://www.canyinj.com/",
         "hot": true
       },
       {
-        "t": "新式茶饮健康化趋势明显，低糖成主流",
+        "t": "奈雪的茶门店突破 1000 家，下沉市场加速",
         "s": "赢商网",
-        "time": "2 小时前",
+        "time": "3 小时前",
         "u": "https://www.winshang.com/",
         "hot": false
       },
       {
-        "t": "茶颜悦色海外扩张加速，马来西亚第二店开业",
+        "t": "茶颜悦色进军海外市场，首店落户新加坡",
         "s": "食品商务网",
-        "time": "3 小时前",
+        "time": "4 小时前",
         "u": "https://www.21food.cn/",
         "hot": false
       },
       {
-        "t": "茶叶原料价格上涨，中小品牌面临成本压力",
+        "t": "新式茶饮原料成本上涨，品牌如何应对？",
         "s": "红餐网",
-        "time": "4 小时前",
+        "time": "5 小时前",
         "u": "https://www.hongcan.com/",
         "hot": false
       },
       {
         "t": "蜜雪冰城门店数突破 3 万家，下沉市场持续深耕",
         "s": "投资界",
-        "time": "5 小时前",
+        "time": "6 小时前",
         "u": "https://www.pedaily.cn/",
         "hot": false
       }
     ],
     "global": [
       {
-        "t": "美联储 3 月议息会议前瞻：降息预期升温",
-        "s": "华尔街见闻",
+        "t": "中东原油产量可能较冲突前最多减少 70%",
+        "s": "金十数据",
         "time": "30 分钟前",
-        "u": "https://wallstreetcn.com/",
+        "u": "https://www.jin10.com/",
         "hot": true
       },
       {
-        "t": "欧洲央行行长：通胀回落，或提前启动降息",
+        "t": "特朗普警告北约：若不出力协助海峡通航将面临糟糕未来",
         "s": "金十数据",
         "time": "1 小时前",
         "u": "https://www.jin10.com/",
         "hot": true
       },
       {
+        "t": "欧洲央行暗示可能降息，欧元走弱",
+        "s": "金十数据",
+        "time": "2 小时前",
+        "u": "https://www.jin10.com/",
+        "hot": false
+      },
+      {
         "t": "日经指数续创历史新高，突破 43000 点",
         "s": "彭博社",
-        "time": "2 小时前",
+        "time": "3 小时前",
         "u": "https://www.bloomberg.com/",
         "hot": false
       },
       {
-        "t": "国际油价反弹，布伦特原油重回 85 美元",
-        "s": "路透社",
-        "time": "3 小时前",
-        "u": "https://www.reuters.com/",
-        "hot": false
-      },
-      {
-        "t": "全球科技股延续涨势，纳斯达克指数再创新高",
+        "t": "全球科技股普涨，纳斯达克指数创新高",
         "s": "CNBC",
         "time": "4 小时前",
         "u": "https://www.cnbc.com/",
         "hot": false
       },
       {
-        "t": "新兴市场资金流入加速，人民币资产受青睐",
+        "t": "新兴市场货币走强，资金流入加速",
         "s": "金融时报",
         "time": "5 小时前",
         "u": "https://www.ft.com/",
