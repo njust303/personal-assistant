@@ -339,7 +339,8 @@
         async function fetchStockData() {
             try {
                 // 尝试从 API 获取
-                const response = await fetch(`${API_BASE}/stock_data.json?t=${Date.now()}`);
+                // 添加版本号强制刷新 CDN 缓存
+                const response = await fetch('stock_data.json?v=' + Date.now());
                 if (response.ok) {
                     const data = await response.json();
                     stockData = data;
