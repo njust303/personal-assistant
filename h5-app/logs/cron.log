@@ -1930,3 +1930,555 @@
 }
 
 数据已保存到：stock_data.json
+
+开始获取数据：2026-03-15 08:59:01
+==================================================
+  请求 URL: https://hq.sinajs.cn/list=sh000001,sz399001,sz399006,sh000300,rt_hk00700,sh60051...
+  响应长度：1291 字节
+  ✓ sh000001: 上证指数 - 4095.4485 (-0.54%)
+  ✓ sz399001: 深证成指 - 14280.78 (-0.14%)
+  ✓ sz399006: 创业板指 - 3310.278 (+0.42%)
+  ✓ sh000300: 沪深300 - 4669.14 (+0.00%)
+  ✓ hk00700: TENCENT - 546.5 (+0.00%)
+  ✓ sh600519: 贵州茅台 - 1413.64 (+1.52%)
+
+  ✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+  ✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+
+  ⚠ 黄金数据获取失败：HTTPSConnectionPool(host='quote.cnfol.com', port=443): Max retries exceeded with url: /intl/gold (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd78255e278>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+  ⚠ 使用备用黄金数据
+
+==================================================
+完整数据：
+==================================================
+{
+  "timestamp": "2026-03-15T08:59:01.866199",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
+    },
+    "comex": {
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
+    }
+  }
+}
+
+数据已保存到：stock_data.json
+
+开始获取数据：2026-03-15 09:00:02
+==================================================
+  请求 URL: https://hq.sinajs.cn/list=sh000001,sz399001,sz399006,sh000300,rt_hk00700,sh60051...
+  响应长度：1291 字节
+  ✓ sh000001: 上证指数 - 4095.4485 (-0.54%)
+  ✓ sz399001: 深证成指 - 14280.78 (-0.14%)
+  ✓ sz399006: 创业板指 - 3310.278 (+0.42%)
+  ✓ sh000300: 沪深300 - 4669.14 (+0.00%)
+  ✓ hk00700: TENCENT - 546.5 (+0.00%)
+  ✓ sh600519: 贵州茅台 - 1413.64 (+1.52%)
+
+  ✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+  ✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+
+  ⚠ 黄金数据获取失败：HTTPSConnectionPool(host='quote.cnfol.com', port=443): Max retries exceeded with url: /intl/gold (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f51eedb3278>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+  ⚠ 使用备用黄金数据
+
+==================================================
+完整数据：
+==================================================
+{
+  "timestamp": "2026-03-15T09:00:02.909224",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
+    },
+    "comex": {
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
+    }
+  }
+}
+
+数据已保存到：stock_data.json
+
+开始获取数据：2026-03-15 09:01:02
+==================================================
+  请求 URL: https://hq.sinajs.cn/list=sh000001,sz399001,sz399006,sh000300,rt_hk00700,sh60051...
+  响应长度：1291 字节
+  ✓ sh000001: 上证指数 - 4095.4485 (-0.54%)
+  ✓ sz399001: 深证成指 - 14280.78 (-0.14%)
+  ✓ sz399006: 创业板指 - 3310.278 (+0.42%)
+  ✓ sh000300: 沪深300 - 4669.14 (+0.00%)
+  ✓ hk00700: TENCENT - 546.5 (+0.00%)
+  ✓ sh600519: 贵州茅台 - 1413.64 (+1.52%)
+
+  ✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+  ✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+
+  ⚠ 黄金数据获取失败：HTTPSConnectionPool(host='quote.cnfol.com', port=443): Max retries exceeded with url: /intl/gold (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa0e79b7208>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+  ⚠ 使用备用黄金数据
+
+==================================================
+完整数据：
+==================================================
+{
+  "timestamp": "2026-03-15T09:01:02.746176",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
+    },
+    "comex": {
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
+    }
+  }
+}
+
+数据已保存到：stock_data.json
+
+开始获取数据：2026-03-15 09:02:01
+==================================================
+  请求 URL: https://hq.sinajs.cn/list=sh000001,sz399001,sz399006,sh000300,rt_hk00700,sh60051...
+  响应长度：1291 字节
+  ✓ sh000001: 上证指数 - 4095.4485 (-0.54%)
+  ✓ sz399001: 深证成指 - 14280.78 (-0.14%)
+  ✓ sz399006: 创业板指 - 3310.278 (+0.42%)
+  ✓ sh000300: 沪深300 - 4669.14 (+0.00%)
+  ✓ hk00700: TENCENT - 546.5 (+0.00%)
+  ✓ sh600519: 贵州茅台 - 1413.64 (+1.52%)
+
+  ✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+  ✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+
+  ⚠ 黄金数据获取失败：HTTPSConnectionPool(host='quote.cnfol.com', port=443): Max retries exceeded with url: /intl/gold (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f336cfb6240>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+  ⚠ 使用备用黄金数据
+
+==================================================
+完整数据：
+==================================================
+{
+  "timestamp": "2026-03-15T09:02:02.604681",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
+    },
+    "comex": {
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
+    }
+  }
+}
+
+数据已保存到：stock_data.json
+
+开始获取数据：2026-03-15 09:03:01
+==================================================
+  请求 URL: https://hq.sinajs.cn/list=sh000001,sz399001,sz399006,sh000300,rt_hk00700,sh60051...
+  响应长度：1291 字节
+  ✓ sh000001: 上证指数 - 4095.4485 (-0.54%)
+  ✓ sz399001: 深证成指 - 14280.78 (-0.14%)
+  ✓ sz399006: 创业板指 - 3310.278 (+0.42%)
+  ✓ sh000300: 沪深300 - 4669.14 (+0.00%)
+  ✓ hk00700: TENCENT - 546.5 (+0.00%)
+  ✓ sh600519: 贵州茅台 - 1413.64 (+1.52%)
+
+  ✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+  ✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+
+  ⚠ 黄金数据获取失败：HTTPSConnectionPool(host='quote.cnfol.com', port=443): Max retries exceeded with url: /intl/gold (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f65e9c1d240>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+  ⚠ 使用备用黄金数据
+
+==================================================
+完整数据：
+==================================================
+{
+  "timestamp": "2026-03-15T09:03:02.684480",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
+    },
+    "comex": {
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
+    }
+  }
+}
+
+数据已保存到：stock_data.json
+
+开始获取数据：2026-03-15 09:04:01
+==================================================
+  请求 URL: https://hq.sinajs.cn/list=sh000001,sz399001,sz399006,sh000300,rt_hk00700,sh60051...
+  响应长度：1291 字节
+  ✓ sh000001: 上证指数 - 4095.4485 (-0.54%)
+  ✓ sz399001: 深证成指 - 14280.78 (-0.14%)
+  ✓ sz399006: 创业板指 - 3310.278 (+0.42%)
+  ✓ sh000300: 沪深300 - 4669.14 (+0.00%)
+  ✓ hk00700: TENCENT - 546.5 (+0.00%)
+  ✓ sh600519: 贵州茅台 - 1413.64 (+1.52%)
+
+  ✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+  ✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+
+  ⚠ 黄金数据获取失败：HTTPSConnectionPool(host='quote.cnfol.com', port=443): Max retries exceeded with url: /intl/gold (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fdbce81e278>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+  ⚠ 使用备用黄金数据
+
+==================================================
+完整数据：
+==================================================
+{
+  "timestamp": "2026-03-15T09:04:02.478511",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
+    },
+    "comex": {
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
+    }
+  }
+}
+
+数据已保存到：stock_data.json
