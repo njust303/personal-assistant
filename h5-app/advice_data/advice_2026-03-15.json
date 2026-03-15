@@ -1,0 +1,37 @@
+{
+  "date": "2026-03-15",
+  "update_time": "2026-03-15 13:35:28",
+  "market_data": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "pe": 13.5,
+      "pb": 1.4
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "pe": 25.3,
+      "pb": 2.8
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "pe": 35.2,
+      "pb": 4.1
+    }
+  },
+  "sentiment": {
+    "state": "neutral",
+    "state_name": "震荡整理"
+  },
+  "valuation": "合理",
+  "advice": {
+    "market_view": "板块轮动加快，注意节奏",
+    "asset_allocation": "股票 60% + 债券 30% + 黄金 10%",
+    "operation_strategy": "观望为主，等待方向"
+  }
+}
