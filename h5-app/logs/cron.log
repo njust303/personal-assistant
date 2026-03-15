@@ -5212,3 +5212,19 @@ Traceback (most recent call last):
   File "fetch_stock_data.py", line 91, in main
     with open(output_file, 'w', encoding='utf-8') as f:
 FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始获取真实数据：2026-03-15 09:53:01
+==================================================
+✓ sh000001: 上证指数 - 4095.45 (-0.81%)
+✓ sh000300: 沪深300 - 4669.14 (-0.39%)
+✓ hk000700: 腾讯控股 - 547.5 (+0.18%)
+✓ sh600519: 贵州茅台 - 1413.64 (+1.55%)
+✓ 基金510300: 华泰柏瑞沪深300ETF - 4.6787 (-0.39%)
+✓ 基金161725: 招商中证白酒指数(LOF)A - 0.6655 (1.10%)
+✓ 黄金：使用备用数据
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 142, in <module>
+    main()
+  File "fetch_stock_data.py", line 130, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
