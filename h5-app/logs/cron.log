@@ -4794,3 +4794,174 @@ Traceback (most recent call last):
   File "fetch_stock_data.py", line 126, in main
     with open(output_file, 'w', encoding='utf-8') as f:
 FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:31:01
+==================================================
+✓ sh000001: 上证指数 - 4110.9 (+0.39%)
+✓ sz399001: 深证成指 - 14222.63 (-0.40%)
+✓ sz399006: 创业板指 - 3305.48 (-0.14%)
+✓ sh000300: 沪深 300 - 4668.15 (-0.02%)
+✓ hk00700: 腾讯控股 - 545.6 (-0.16%)
+✓ sh600519: 贵州茅台 - 1407.65 (-0.38%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.69 (+0.27%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.67 (+0.28%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 567.5 (-0.18%)
+✓ 黄金comex: 国际黄金 (现货) - 2648.77 (-0.06%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:32:01
+==================================================
+✓ sh000001: 上证指数 - 4084.83 (-0.25%)
+✓ sz399001: 深证成指 - 14215.34 (-0.45%)
+✓ sz399006: 创业板指 - 3320.14 (+0.31%)
+✓ sh000300: 沪深 300 - 4672.92 (+0.08%)
+✓ hk00700: 腾讯控股 - 547.75 (+0.23%)
+✓ sh600519: 贵州茅台 - 1415.72 (+0.19%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.69 (+0.17%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.66 (-0.18%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 567.76 (-0.13%)
+✓ 黄金comex: 国际黄金 (现货) - 2652.18 (+0.07%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:33:01
+==================================================
+✓ sh000001: 上证指数 - 4099.23 (+0.10%)
+✓ sz399001: 深证成指 - 14345.74 (+0.46%)
+✓ sz399006: 创业板指 - 3293.75 (-0.49%)
+✓ sh000300: 沪深 300 - 4647.52 (-0.46%)
+✓ hk00700: 腾讯控股 - 546.84 (+0.06%)
+✓ sh600519: 贵州茅台 - 1407.38 (-0.40%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.67 (-0.28%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.66 (-0.10%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 568.68 (+0.03%)
+✓ 黄金comex: 国际黄金 (现货) - 2651.63 (+0.05%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:34:01
+==================================================
+✓ sh000001: 上证指数 - 4091.89 (-0.08%)
+✓ sz399001: 深证成指 - 14226.44 (-0.38%)
+✓ sz399006: 创业板指 - 3304.75 (-0.16%)
+✓ sh000300: 沪深 300 - 4656.75 (-0.26%)
+✓ hk00700: 腾讯控股 - 544.08 (-0.44%)
+✓ sh600519: 贵州茅台 - 1410.78 (-0.16%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.68 (-0.03%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.66 (-0.17%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 568.34 (-0.03%)
+✓ 黄金comex: 国际黄金 (现货) - 2654.5 (+0.16%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:35:01
+==================================================
+✓ sh000001: 上证指数 - 4113.36 (+0.45%)
+✓ sz399001: 深证成指 - 14261.83 (-0.13%)
+✓ sz399006: 创业板指 - 3316.84 (+0.21%)
+✓ sh000300: 沪深 300 - 4688.86 (+0.43%)
+✓ hk00700: 腾讯控股 - 549.07 (+0.47%)
+✓ sh600519: 贵州茅台 - 1417.72 (+0.33%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.68 (+0.08%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.66 (-0.13%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 568.94 (+0.08%)
+✓ 黄金comex: 国际黄金 (现货) - 2645.19 (-0.19%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:36:01
+==================================================
+✓ sh000001: 上证指数 - 4099.49 (+0.11%)
+✓ sz399001: 深证成指 - 14321.85 (+0.29%)
+✓ sz399006: 创业板指 - 3323.96 (+0.42%)
+✓ sh000300: 沪深 300 - 4681.18 (+0.26%)
+✓ hk00700: 腾讯控股 - 548.95 (+0.45%)
+✓ sh600519: 贵州茅台 - 1413.83 (+0.06%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.68 (+0.06%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.67 (+0.05%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 568.61 (+0.02%)
+✓ 黄金comex: 国际黄金 (现货) - 2652.04 (+0.07%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:37:01
+==================================================
+✓ sh000001: 上证指数 - 4089.39 (-0.14%)
+✓ sz399001: 深证成指 - 14271.92 (-0.06%)
+✓ sz399006: 创业板指 - 3293.85 (-0.49%)
+✓ sh000300: 沪深 300 - 4670.57 (+0.03%)
+✓ hk00700: 腾讯控股 - 547.77 (+0.23%)
+✓ sh600519: 贵州茅台 - 1419.22 (+0.44%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.67 (-0.27%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.67 (+0.22%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 569.56 (+0.19%)
+✓ 黄金comex: 国际黄金 (现货) - 2649.59 (-0.03%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:38:01
+==================================================
+✓ sh000001: 上证指数 - 4109.59 (+0.36%)
+✓ sz399001: 深证成指 - 14214.82 (-0.46%)
+✓ sz399006: 创业板指 - 3323.29 (+0.40%)
+✓ sh000300: 沪深 300 - 4678.18 (+0.20%)
+✓ hk00700: 腾讯控股 - 548.57 (+0.38%)
+✓ sh600519: 贵州茅台 - 1416.51 (+0.25%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.69 (+0.21%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.66 (-0.20%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 568.29 (-0.04%)
+✓ 黄金comex: 国际黄金 (现货) - 2645.23 (-0.19%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
+
+📊 开始更新数据：2026-03-15 09:39:01
+==================================================
+✓ sh000001: 上证指数 - 4090.0 (-0.12%)
+✓ sz399001: 深证成指 - 14324.15 (+0.31%)
+✓ sz399006: 创业板指 - 3305.99 (-0.12%)
+✓ sh000300: 沪深 300 - 4673.45 (+0.10%)
+✓ hk00700: 腾讯控股 - 546.89 (+0.07%)
+✓ sh600519: 贵州茅台 - 1405.95 (-0.50%)
+✓ 基金510300: 华泰柏瑞沪深 300ETF - 4.67 (-0.07%)
+✓ 基金161725: 招商中证白酒指数 (LOF)A - 0.66 (-0.16%)
+✓ 黄金cnf: 国内黄金 (AU9999) - 568.09 (-0.07%)
+✓ 黄金comex: 国际黄金 (现货) - 2645.41 (-0.18%)
+Traceback (most recent call last):
+  File "fetch_stock_data.py", line 98, in <module>
+    main()
+  File "fetch_stock_data.py", line 91, in main
+    with open(output_file, 'w', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'h5-app/stock_data.json'
