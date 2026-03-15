@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-03-15T08:17:09.804763",
+  "stocks": {
+    "sh000001": {
+      "name": "上证指数",
+      "price": 4095.45,
+      "change": -0.54,
+      "change_amount": -22.13
+    },
+    "sz399001": {
+      "name": "深证成指",
+      "price": 14280.78,
+      "change": -0.14,
+      "change_amount": -20.14
+    },
+    "sz399006": {
+      "name": "创业板指",
+      "price": 3310.28,
+      "change": 0.42,
+      "change_amount": 13.77
+    },
+    "sh000300": {
+      "name": "沪深300",
+      "price": 4669.14,
+      "change": 0.0,
+      "change_amount": 0.08
+    },
+    "hk00700": {
+      "name": "TENCENT",
+      "price": 546.5,
+      "change": 0.0,
+      "change_amount": 0.0
+    },
+    "sh600519": {
+      "name": "贵州茅台",
+      "price": 1413.64,
+      "change": 1.52,
+      "change_amount": 21.16
+    }
+  },
+  "funds": {
+    "510300": {
+      "name": "华泰柏瑞沪深300ETF",
+      "net_value": 4.6787,
+      "change": -0.39,
+      "change_amount": 0
+    },
+    "161725": {
+      "name": "招商中证白酒指数(LOF)A",
+      "net_value": 0.6655,
+      "change": 1.1,
+      "change_amount": 0
+    }
+  },
+  "gold": {
+    "cnf": {
+      "name": "CNF黄金",
+      "price": 1144.0,
+      "change": -95.03,
+      "change_amount": -21856.0
+    },
+    "comex": {
+      "name": "COMEX黄金",
+      "price": 1144.0,
+      "change": -95.03,
+      "change_amount": -21856.0
+    }
+  }
+}
