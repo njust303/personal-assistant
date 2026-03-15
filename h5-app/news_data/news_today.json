@@ -1,0 +1,182 @@
+{
+  "date": "2026-03-15",
+  "update_time": "2026-03-15 13:15:07",
+  "news": {
+    "finance": [
+      {
+        "t": "\"十五五\"规划纲要发布，109 项重大工程将改变你的钱袋子",
+        "s": "中新网",
+        "time": "1小时前",
+        "u": "https://www.chinanews.com.cn/cj/",
+        "hot": true
+      },
+      {
+        "t": "央行开展6500亿元逆回购操作，释放流动性",
+        "s": "央行官网",
+        "time": "3小时前",
+        "u": "https://www.pbc.gov.cn/",
+        "hot": true
+      },
+      {
+        "t": "证监会：加强资本市场基础制度建设",
+        "s": "证监会",
+        "time": "5小时前",
+        "u": "http://www.csrc.gov.cn/",
+        "hot": false
+      },
+      {
+        "t": "A 股成交量创近期新高，市场情绪回暖",
+        "s": "证券时报",
+        "time": "7小时前",
+        "u": "http://www.stcn.com/",
+        "hot": false
+      },
+      {
+        "t": "房贷利率下调，购房者迎来利好",
+        "s": "财经网",
+        "time": "9小时前",
+        "u": "https://www.caijing.com.cn/",
+        "hot": false
+      },
+      {
+        "t": "银行理财业务规范发展，保护投资者权益",
+        "s": "银保监会",
+        "time": "11小时前",
+        "u": "https://www.cbirc.gov.cn/",
+        "hot": false
+      }
+    ],
+    "ai": [
+      {
+        "t": "OpenAI 发布 GPT-5，AI 能力再升级",
+        "s": "36 氪",
+        "time": "1小时前",
+        "u": "https://36kr.com/",
+        "hot": true
+      },
+      {
+        "t": "国产大模型竞争激烈，谁能脱颖而出？",
+        "s": "机器之心",
+        "time": "3小时前",
+        "u": "https://www.jiqizhixin.com/",
+        "hot": true
+      },
+      {
+        "t": "AI 赋能金融行业，智能投顾成新趋势",
+        "s": "钛媒体",
+        "time": "5小时前",
+        "u": "https://www.tmtpost.com/",
+        "hot": false
+      },
+      {
+        "t": "自动驾驶技术突破，特斯拉 FSD 入华",
+        "s": "晚点 LatePost",
+        "time": "7小时前",
+        "u": "https://www.postlate.com/",
+        "hot": false
+      },
+      {
+        "t": "AI 芯片需求爆发，英伟达股价创新高",
+        "s": "界面新闻",
+        "time": "9小时前",
+        "u": "https://www.jiemian.com/",
+        "hot": false
+      },
+      {
+        "t": "微软 Copilot 用户破亿，AI 助手普及加速",
+        "s": "品玩",
+        "time": "11小时前",
+        "u": "https://www.pinwan.com/",
+        "hot": false
+      }
+    ],
+    "tea": [
+      {
+        "t": "2026 新式茶饮消费趋势报告发布，健康化成主流",
+        "s": "联商网",
+        "time": "1小时前",
+        "u": "https://www.linkshop.com.cn/",
+        "hot": true
+      },
+      {
+        "t": "喜茶推出春季限定新品，樱花系列上市",
+        "s": "餐饮界",
+        "time": "3小时前",
+        "u": "https://www.canyinj.com/",
+        "hot": true
+      },
+      {
+        "t": "奈雪的茶门店突破 1000 家，下沉市场加速",
+        "s": "赢商网",
+        "time": "5小时前",
+        "u": "https://www.winshang.com/",
+        "hot": false
+      },
+      {
+        "t": "茶颜悦色进军海外市场，首店落户新加坡",
+        "s": "食品商务网",
+        "time": "7小时前",
+        "u": "https://www.21food.cn/",
+        "hot": false
+      },
+      {
+        "t": "新式茶饮原料成本上涨，品牌如何应对？",
+        "s": "红餐网",
+        "time": "9小时前",
+        "u": "https://www.hongcan.com/",
+        "hot": false
+      },
+      {
+        "t": "霸王茶姬完成新一轮融资，估值超百亿",
+        "s": "投资界",
+        "time": "11小时前",
+        "u": "https://www.pedaily.cn/",
+        "hot": false
+      }
+    ],
+    "global": [
+      {
+        "t": "美联储维持利率不变，通胀仍高于目标",
+        "s": "华尔街见闻",
+        "time": "1小时前",
+        "u": "https://wallstreetcn.com/",
+        "hot": true
+      },
+      {
+        "t": "欧洲央行暗示可能降息，欧元走弱",
+        "s": "金十数据",
+        "time": "3小时前",
+        "u": "https://www.jin10.com/",
+        "hot": true
+      },
+      {
+        "t": "日本股市创历史新高，日经指数突破 42000 点",
+        "s": "彭博社",
+        "time": "5小时前",
+        "u": "https://www.bloomberg.com/",
+        "hot": false
+      },
+      {
+        "t": "国际油价波动，OPEC+ 讨论增产计划",
+        "s": "路透社",
+        "time": "7小时前",
+        "u": "https://www.reuters.com/",
+        "hot": false
+      },
+      {
+        "t": "全球科技股普涨，纳斯达克指数创新高",
+        "s": "CNBC",
+        "time": "9小时前",
+        "u": "https://www.cnbc.com/",
+        "hot": false
+      },
+      {
+        "t": "新兴市场货币走强，资金流入加速",
+        "s": "金融时报",
+        "time": "11小时前",
+        "u": "https://www.ft.com/",
+        "hot": false
+      }
+    ]
+  }
+}

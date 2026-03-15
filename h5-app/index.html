@@ -44,6 +44,10 @@
         .news-meta { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #999; }
         .news-source { background: linear-gradient(135deg, #e6f7ff, #bae7ff); color: #1890FF; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
         .news-hot { background: linear-gradient(135deg, #fff7e6, #ffe7ba); color: #fa8c16; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+        .refresh-btn { background: linear-gradient(135deg, #52C41A, #389E0D); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: all 0.3s; }
+        .refresh-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(82,196,26,0.3); }
+        .refresh-btn:active { transform: translateY(0); }
+        .refresh-btn:disabled { background: #d9d9d9; cursor: not-allowed; transform: none; }
         .article-list { display: grid; gap: 10px; }
         .article-card { background: linear-gradient(135deg, #f8f9fa, #fff); padding: 14px; border-radius: 10px; cursor: pointer; border: 1px solid #e8e8e8; transition: all 0.3s; }
         .article-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-color: #0066FF; }
@@ -113,7 +117,13 @@
             </div>
             <!-- 行业动态 -->
             <div class="card">
-                <div class="card-title">📰 行业动态</div>
+                <div class="card-title">
+                    <span>📰 行业动态</span>
+                    <button class="refresh-btn" onclick="refreshNews()" title="手动刷新新闻">🔄 刷新</button>
+                </div>
+                <div class="news-meta" style="margin-bottom:10px;">
+                    <span id="lastUpdate">最后更新：加载中...</span>
+                </div>
                 <div class="news-tabs">
                     <div class="news-tab active" onclick="showNews('finance')">💰 金融</div>
                     <div class="news-tab" onclick="showNews('ai')">🤖 AI</div>
@@ -207,39 +217,184 @@
     </div>
     <script>
         const newsData = {
-            finance: [
-                {t: '"十五五"规划纲要发布，109 项重大工程将改变你的钱袋子', s: '中新网', time: '10 分钟前', u: 'https://www.chinanews.com.cn/cj/', hot: true},
-                {t: '央行开展 5000 亿元逆回购操作，释放流动性', s: '央行官网', time: '30 分钟前', u: 'https://www.pbc.gov.cn/', hot: true},
-                {t: '证监会：加强资本市场基础制度建设', s: '证监会', time: '1 小时前', u: 'http://www.csrc.gov.cn/', hot: false},
-                {t: 'A 股成交量创近期新高，市场情绪回暖', s: '证券时报', time: '2 小时前', u: 'http://www.stcn.com/', hot: false},
-                {t: '房贷利率下调，购房者迎来利好', s: '财经网', time: '3 小时前', u: 'https://www.caijing.com.cn/', hot: false},
-                {t: '银行理财业务规范发展，保护投资者权益', s: '银保监会', time: '4 小时前', u: 'https://www.cbirc.gov.cn/', hot: false},
-            ],
-            ai: [
-                {t: 'OpenAI 发布 GPT-5，AI 能力再升级', s: '36 氪', time: '15 分钟前', u: 'https://36kr.com/', hot: true},
-                {t: '国产大模型竞争激烈，谁能脱颖而出？', s: '机器之心', time: '1 小时前', u: 'https://www.jiqizhixin.com/', hot: true},
-                {t: 'AI 赋能金融行业，智能投顾成新趋势', s: '钛媒体', time: '2 小时前', u: 'https://www.tmtpost.com/', hot: false},
-                {t: '自动驾驶技术突破，特斯拉 FSD 入华', s: '晚点 LatePost', time: '3 小时前', u: 'https://www.postlate.com/', hot: false},
-                {t: 'AI 芯片需求爆发，英伟达股价创新高', s: '界面新闻', time: '4 小时前', u: 'https://www.jiemian.com/', hot: false},
-                {t: '微软 Copilot 用户破亿，AI 助手普及加速', s: '品玩', time: '5 小时前', u: 'https://www.pinwan.com/', hot: false},
-            ],
-            tea: [
-                {t: '2026 新式茶饮消费趋势报告发布，健康化成主流', s: '联商网', time: '20 分钟前', u: 'https://www.linkshop.com.cn/', hot: true},
-                {t: '喜茶推出春季限定新品，樱花系列上市', s: '餐饮界', time: '1 小时前', u: 'https://www.canyinj.com/', hot: false},
-                {t: '奈雪的茶门店突破 1000 家，下沉市场加速', s: '赢商网', time: '2 小时前', u: 'https://www.winshang.com/', hot: false},
-                {t: '茶颜悦色进军海外市场，首店落户新加坡', s: '食品商务网', time: '3 小时前', u: 'https://www.21food.cn/', hot: false},
-                {t: '新式茶饮原料成本上涨，品牌如何应对？', s: '红餐网', time: '4 小时前', u: 'https://www.hongcan.com/', hot: false},
-                {t: '霸王茶姬完成新一轮融资，估值超百亿', s: '投资界', time: '5 小时前', u: 'https://www.pedaily.cn/', hot: false},
-            ],
-            global: [
-                {t: '美联储维持利率不变，通胀仍高于目标', s: '华尔街见闻', time: '30 分钟前', u: 'https://wallstreetcn.com/', hot: true},
-                {t: '欧洲央行暗示可能降息，欧元走弱', s: '金十数据', time: '1 小时前', u: 'https://www.jin10.com/', hot: true},
-                {t: '日本股市创历史新高，日经指数突破 42000 点', s: '彭博社', time: '2 小时前', u: 'https://www.bloomberg.com/', hot: false},
-                {t: '国际油价波动，OPEC+ 讨论增产计划', s: '路透社', time: '3 小时前', u: 'https://www.reuters.com/', hot: false},
-                {t: '全球科技股普涨，纳斯达克指数创新高', s: 'CNBC', time: '4 小时前', u: 'https://www.cnbc.com/', hot: false},
-                {t: '新兴市场货币走强，资金流入加速', s: '金融时报', time: '5 小时前', u: 'https://www.ft.com/', hot: false},
-            ]
-        };
+    "finance": [
+        {
+            "t": "\"十五五\"规划纲要发布，109 项重大工程将改变你的钱袋子",
+            "s": "中新网",
+            "time": "1小时前",
+            "u": "https://www.chinanews.com.cn/cj/",
+            "hot": true
+        },
+        {
+            "t": "央行开展6500亿元逆回购操作，释放流动性",
+            "s": "央行官网",
+            "time": "3小时前",
+            "u": "https://www.pbc.gov.cn/",
+            "hot": true
+        },
+        {
+            "t": "证监会：加强资本市场基础制度建设",
+            "s": "证监会",
+            "time": "5小时前",
+            "u": "http://www.csrc.gov.cn/",
+            "hot": false
+        },
+        {
+            "t": "A 股成交量创近期新高，市场情绪回暖",
+            "s": "证券时报",
+            "time": "7小时前",
+            "u": "http://www.stcn.com/",
+            "hot": false
+        },
+        {
+            "t": "房贷利率下调，购房者迎来利好",
+            "s": "财经网",
+            "time": "9小时前",
+            "u": "https://www.caijing.com.cn/",
+            "hot": false
+        },
+        {
+            "t": "银行理财业务规范发展，保护投资者权益",
+            "s": "银保监会",
+            "time": "11小时前",
+            "u": "https://www.cbirc.gov.cn/",
+            "hot": false
+        }
+    ],
+    "ai": [
+        {
+            "t": "OpenAI 发布 GPT-5，AI 能力再升级",
+            "s": "36 氪",
+            "time": "1小时前",
+            "u": "https://36kr.com/",
+            "hot": true
+        },
+        {
+            "t": "国产大模型竞争激烈，谁能脱颖而出？",
+            "s": "机器之心",
+            "time": "3小时前",
+            "u": "https://www.jiqizhixin.com/",
+            "hot": true
+        },
+        {
+            "t": "AI 赋能金融行业，智能投顾成新趋势",
+            "s": "钛媒体",
+            "time": "5小时前",
+            "u": "https://www.tmtpost.com/",
+            "hot": false
+        },
+        {
+            "t": "自动驾驶技术突破，特斯拉 FSD 入华",
+            "s": "晚点 LatePost",
+            "time": "7小时前",
+            "u": "https://www.postlate.com/",
+            "hot": false
+        },
+        {
+            "t": "AI 芯片需求爆发，英伟达股价创新高",
+            "s": "界面新闻",
+            "time": "9小时前",
+            "u": "https://www.jiemian.com/",
+            "hot": false
+        },
+        {
+            "t": "微软 Copilot 用户破亿，AI 助手普及加速",
+            "s": "品玩",
+            "time": "11小时前",
+            "u": "https://www.pinwan.com/",
+            "hot": false
+        }
+    ],
+    "tea": [
+        {
+            "t": "2026 新式茶饮消费趋势报告发布，健康化成主流",
+            "s": "联商网",
+            "time": "1小时前",
+            "u": "https://www.linkshop.com.cn/",
+            "hot": true
+        },
+        {
+            "t": "喜茶推出春季限定新品，樱花系列上市",
+            "s": "餐饮界",
+            "time": "3小时前",
+            "u": "https://www.canyinj.com/",
+            "hot": true
+        },
+        {
+            "t": "奈雪的茶门店突破 1000 家，下沉市场加速",
+            "s": "赢商网",
+            "time": "5小时前",
+            "u": "https://www.winshang.com/",
+            "hot": false
+        },
+        {
+            "t": "茶颜悦色进军海外市场，首店落户新加坡",
+            "s": "食品商务网",
+            "time": "7小时前",
+            "u": "https://www.21food.cn/",
+            "hot": false
+        },
+        {
+            "t": "新式茶饮原料成本上涨，品牌如何应对？",
+            "s": "红餐网",
+            "time": "9小时前",
+            "u": "https://www.hongcan.com/",
+            "hot": false
+        },
+        {
+            "t": "霸王茶姬完成新一轮融资，估值超百亿",
+            "s": "投资界",
+            "time": "11小时前",
+            "u": "https://www.pedaily.cn/",
+            "hot": false
+        }
+    ],
+    "global": [
+        {
+            "t": "美联储维持利率不变，通胀仍高于目标",
+            "s": "华尔街见闻",
+            "time": "1小时前",
+            "u": "https://wallstreetcn.com/",
+            "hot": true
+        },
+        {
+            "t": "欧洲央行暗示可能降息，欧元走弱",
+            "s": "金十数据",
+            "time": "3小时前",
+            "u": "https://www.jin10.com/",
+            "hot": true
+        },
+        {
+            "t": "日本股市创历史新高，日经指数突破 42000 点",
+            "s": "彭博社",
+            "time": "5小时前",
+            "u": "https://www.bloomberg.com/",
+            "hot": false
+        },
+        {
+            "t": "国际油价波动，OPEC+ 讨论增产计划",
+            "s": "路透社",
+            "time": "7小时前",
+            "u": "https://www.reuters.com/",
+            "hot": false
+        },
+        {
+            "t": "全球科技股普涨，纳斯达克指数创新高",
+            "s": "CNBC",
+            "time": "9小时前",
+            "u": "https://www.cnbc.com/",
+            "hot": false
+        },
+        {
+            "t": "新兴市场货币走强，资金流入加速",
+            "s": "金融时报",
+            "time": "11小时前",
+            "u": "https://www.ft.com/",
+            "hot": false
+        }
+    ]
+};
+
         const articles = [
             {c:'入门',t:'什么是理财？',s:'理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。',content:'<h1>什么是理财？</h1><p>理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。理财不仅仅是投资，还包括储蓄、保险、税务规划等多个方面。</p><h2>💰 理财的核心目标</h2><ol><li><strong>保障日常生活开支：</strong>确保基本生活需求</li><li><strong>应对突发事件：</strong>建立紧急备用金（3-6 个月生活费）</li><li><strong>实现财富增值：</strong>让钱生钱，跑赢通胀</li><li><strong>为未来目标做准备：</strong>购房、教育、养老等长期目标</li></ol><h2>📚 理财的基本原则</h2><ul><li><strong>量入为出：</strong>支出不要超过收入，先储蓄后消费</li><li><strong>分散投资：</strong>不要把鸡蛋放在一个篮子里</li><li><strong>长期思维：</strong>理财是马拉松，不是短跑</li><li><strong>风险匹配：</strong>选择与自己风险承受能力匹配的产品</li><li><strong>持续学习：</strong>市场在变，知识需要更新</li></ul><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>小明月收入 1 万元，每月强制储蓄 2000 元（20%），剩余 8000 元用于生活开支。一年后存下 2.4 万元，其中 1 万元作为紧急备用金，1.4 万元开始定投指数基金。</p></div>'},
             {c:'入门',t:'复利效应：世界第八大奇迹',s:'被爱因斯坦称为"世界第八大奇迹"。复利公式：FV = PV × (1 + r)^n',content:'<h1>复利效应：世界第八大奇迹</h1><p>复利是指利息再生利息的效果，被爱因斯坦称为"世界第八大奇迹"。</p><h2>📐 复利公式</h2><p><strong>FV = PV × (1 + r)^n</strong></p><ul><li><strong>FV：</strong>未来价值（Future Value）</li><li><strong>PV：</strong>现值/本金（Present Value）</li><li><strong>r：</strong>年化收益率</li><li><strong>n：</strong>投资年限</li></ul><h2>💡 复利的威力</h2><p>每月定投 1000 元，年化 8%，30 年后本息合计约 150 万元（本金只有 36 万）</p><div class="case-box"><div class="case-box-title">📖 实际案例对比</div><p><strong>A 先生：</strong>25 岁开始每月定投 1000 元，年化 8%，坚持到 60 岁</p><p>结果：投入 42 万，最终获得 <strong>210 万</strong></p><p style="margin-top:10px;"><strong>B 先生：</strong>35 岁开始每月定投 1000 元，年化 8%，坚持到 60 岁</p><p>结果：投入 30 万，最终获得 <strong>95 万</strong></p><p style="margin-top:10px;"><strong>差距：</strong>A 先生只早开始 10 年，最终收益是 B 先生的 <em>2.2 倍</em>！</p></div><h2>🚀 启动复利的关键</h2><ol><li><strong>尽早开始：</strong>时间越长，复利效应越明显</li><li><strong>保持稳定：</strong>持续投入，不要中断</li><li><strong>追求合理收益：</strong>年化 8-12% 是可行目标</li></ol>'},
@@ -289,6 +444,10 @@
         function showNews(category) {
             document.querySelectorAll('.news-tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
+            renderNews(category);
+        }
+        
+        function renderNews(category) {
             const list = document.getElementById('newsList');
             list.innerHTML = newsData[category].map(n => `
                 <div class="news-item">
@@ -300,6 +459,41 @@
                 </div>
             `).join('');
         }
+        
+        function refreshNews() {
+            const btn = event.target;
+            btn.disabled = true;
+            btn.textContent = '🔄 刷新中...';
+            
+            // 重新加载新闻数据
+            fetch('news_data/news_today.json?t=' + Date.now())
+                .then(r => r.json())
+                .then(data => {
+                    window.newsData = data.news;
+                    document.getElementById('lastUpdate').textContent = '最后更新：' + data.update_time;
+                    renderNews('finance');
+                    btn.disabled = false;
+                    btn.textContent = '🔄 刷新';
+                    alert('✅ 新闻已更新！');
+                })
+                .catch(e => {
+                    console.error('刷新失败:', e);
+                    btn.disabled = false;
+                    btn.textContent = '🔄 刷新';
+                    alert('❌ 刷新失败，请稍后重试');
+                });
+        }
+        
+        function loadLastUpdateTime() {
+            fetch('news_data/news_today.json?t=' + Date.now())
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('lastUpdate').textContent = '最后更新：' + data.update_time;
+                })
+                .catch(e => {
+                    document.getElementById('lastUpdate').textContent = '最后更新：未知';
+                });
+        }
         function updateTime() {
             const now = new Date();
             const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false };
@@ -310,6 +504,7 @@
         setInterval(updateTime, 60000);
         renderArticles();
         showNews('finance');
+        loadLastUpdateTime();
     </script>
 </body>
 </html>
