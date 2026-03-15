@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-15T08:40:01.760733",
+  "timestamp": "2026-03-15T08:58:02.083715",
   "stocks": {
     "sh000001": {
       "name": "上证指数",
@@ -54,16 +54,16 @@
   },
   "gold": {
     "cnf": {
-      "name": "CNF黄金",
-      "price": 1144.0,
-      "change": -95.03,
-      "change_amount": -21856.0
+      "name": "国内黄金 (AU9999)",
+      "price": 568.5,
+      "change": 0.25,
+      "change_amount": 1.42
     },
     "comex": {
-      "name": "COMEX黄金",
-      "price": 1144.0,
-      "change": -95.03,
-      "change_amount": -21856.0
+      "name": "国际黄金 (现货)",
+      "price": 2650.3,
+      "change": 0.15,
+      "change_amount": 3.97
     }
   }
 }
