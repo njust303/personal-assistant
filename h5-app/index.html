@@ -2,12 +2,11 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人理财助手 v4.0 - 专业版</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>个人理财助手 v4.1 - 专业版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
-        .version-bar { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 8px 16px; font-size: 12px; text-align: center; font-weight: 600; }
         .info-bar { background: linear-gradient(135deg, #0066FF, #0052CC); color: white; padding: 15px 16px; }
         .info-top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; }
         .info-title { text-align: center; font-size: 18px; font-weight: 600; }
@@ -18,13 +17,19 @@
         .container { padding: 12px; max-width: 600px; margin: 0 auto; }
         .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
         .card-title { font-size: 17px; font-weight: 600; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; color: #333; }
-        .live-btn { background: linear-gradient(135deg, #52C41A, #389E0D); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: block; margin: 0; font-weight: 600; text-align: center; transition: all 0.3s; box-shadow: 0 2px 8px rgba(82,196,26,0.3); }
-        .live-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(82,196,26,0.4); }
-        .live-btn:active { transform: translateY(0); }
+        .advice-box { background: linear-gradient(135deg, #f6ffed, #d9f7be); padding: 16px; border-radius: 10px; border-left: 4px solid #52C41A; margin-bottom: 12px; }
+        .advice-item { margin-bottom: 10px; font-size: 14px; line-height: 1.6; }
+        .advice-item strong { color: #237804; }
         .live-btn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .live-btn-sm { background: linear-gradient(135deg, #1890FF, #096dd9); padding: 10px 16px; font-size: 13px; }
+        .live-btn { background: linear-gradient(135deg, #52C41A, #389E0D); color: white; padding: 14px 20px; border-radius: 8px; text-decoration: none; display: block; font-weight: 600; text-align: center; transition: all 0.3s; box-shadow: 0 2px 8px rgba(82,196,26,0.3); font-size: 15px; }
+        .live-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(82,196,26,0.4); }
+        .live-btn-sm { background: linear-gradient(135deg, #1890FF, #096dd9); padding: 12px 16px; font-size: 14px; }
+        .quick-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+        .quick-link { background: linear-gradient(135deg, #f0f5ff, #e6f7ff); border: 1px solid #adc6ff; padding: 12px 8px; border-radius: 8px; text-align: center; text-decoration: none; color: #0066FF; font-size: 12px; font-weight: 500; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .quick-link:hover { background: linear-gradient(135deg, #e6f7ff, #bae7ff); transform: translateY(-2px); }
+        .quick-link-icon { font-size: 20px; }
         .disclaimer { background: #fff7e6; padding: 10px; border-radius: 8px; font-size: 11px; color: #999; margin-top: 10px; border: 1px dashed #ffd591; }
-        .footer { text-align: center; padding: 20px; color: #999; font-size: 11px; }
+        .footer { text-align: center; padding: 20px; color: #999; font-size: 11px; background: white; margin-top: 12px; border-radius: 12px 12px 0 0; }
         .section { display: none; }
         .section.active { display: block; }
         .news-tabs { display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px; }
@@ -53,9 +58,14 @@
         .article-content { background: white; padding: 20px; border-radius: 12px; line-height: 1.8; font-size: 15px; }
         .article-content h1 { font-size: 22px; margin-bottom: 16px; color: #333; border-left: 4px solid #0066FF; padding-left: 12px; }
         .article-content h2 { font-size: 18px; margin: 20px 0 12px; color: #333; border-left: 3px solid #0066FF; padding-left: 10px; }
+        .article-content h3 { font-size: 16px; margin: 16px 0 10px; color: #333; font-weight: 600; }
         .article-content p { margin-bottom: 14px; color: #555; line-height: 1.7; }
         .article-content ul, .article-content ol { margin: 14px 0 14px 20px; color: #555; }
         .article-content li { margin-bottom: 8px; line-height: 1.6; }
+        .article-content strong { color: #333; }
+        .article-content em { color: #0066FF; font-style: normal; }
+        .case-box { background: #f0f5ff; border: 1px solid #adc6ff; border-radius: 8px; padding: 14px; margin: 16px 0; }
+        .case-box-title { font-size: 14px; font-weight: 600; color: #0066FF; margin-bottom: 8px; }
         .platform-card { padding: 14px; border: 1px solid #e8e8e8; border-radius: 10px; margin-bottom: 10px; transition: all 0.3s; }
         .platform-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         .platform-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
@@ -67,22 +77,9 @@
         .tag-green { background: #f6ffed; color: #52C41A; }
         .tag-blue { background: #e6f7ff; color: #1890FF; }
         .tag-purple { background: #f9f0ff; color: #722ED1; }
-        .advice-box { background: linear-gradient(135deg, #f6ffed, #d9f7be); padding: 14px; border-radius: 10px; border-left: 4px solid #52C41A; }
-        .advice-item { margin-bottom: 8px; font-size: 13px; line-height: 1.5; }
-        .quick-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
-        .quick-link { background: linear-gradient(135deg, #f0f5ff, #e6f7ff); border: 1px solid #adc6ff; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; color: #0066FF; font-size: 12px; font-weight: 500; transition: all 0.3s; }
-        .quick-link:hover { background: linear-gradient(135deg, #e6f7ff, #bae7ff); transform: translateY(-2px); }
-        .knowledge-category { background: linear-gradient(135deg, #f9f0ff, #f3e5f5); padding: 12px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #722ED1; }
-        .knowledge-category h3 { color: #722ED1; font-size: 15px; margin-bottom: 8px; }
-        .knowledge-category ul { list-style: none; }
-        .knowledge-category li { padding: 6px 0; color: #666; font-size: 13px; cursor: pointer; transition: all 0.2s; }
-        .knowledge-category li:hover { color: #722ED1; padding-left: 8px; }
     </style>
 </head>
 <body>
-    <div class="version-bar">
-        💰 个人理财助手 v4.0 专业版 | 2026-03-15
-    </div>
     <div class="info-bar">
         <div class="info-top">
             <div id="datetime">加载中...</div>
@@ -93,16 +90,28 @@
     <div class="container">
         <!-- 首页 -->
         <div id="home" class="section active">
+            <!-- 每日建议 -->
+            <div class="card">
+                <div class="card-title">💡 今日建议</div>
+                <div class="advice-box">
+                    <div class="advice-item"><strong>📊 市场观点：</strong>震荡整理，关注科技、消费板块机会</div>
+                    <div class="advice-item"><strong>⚖️ 资产配置：</strong>股票 60% + 债券 30% + 黄金 10%</div>
+                    <div class="advice-item"><strong>🎯 操作策略：</strong>逢低布局，避免追高，坚持定投</div>
+                </div>
+                <div class="disclaimer">⚠️ 以上建议仅供参考，不构成投资建议。市场有风险，投资需谨慎。</div>
+            </div>
+            <!-- 实时行情 -->
             <div class="card">
                 <div class="card-title">🔗 实时行情</div>
                 <div class="live-btn-grid">
-                    <a href="https://quote.eastmoney.com/center/gridlist.html" target="_blank" class="live-btn">📊 A 股行情</a>
-                    <a href="https://gold.eastmoney.com/" target="_blank" class="live-btn">🥇 黄金行情</a>
-                    <a href="http://fund.eastmoney.com/" target="_blank" class="live-btn live-btn-sm">💰 基金净值</a>
-                    <a href="https://hk.quote.eastmoney.com/" target="_blank" class="live-btn live-btn-sm">🇭🇰 港股行情</a>
+                    <a href="https://m.quote.eastmoney.com/" target="_blank" class="live-btn">📊 A 股行情</a>
+                    <a href="https://m.gold.eastmoney.com/" target="_blank" class="live-btn">🥇 黄金行情</a>
+                    <a href="https://m.1234567.com.cn/" target="_blank" class="live-btn live-btn-sm">💰 基金净值</a>
+                    <a href="https://m.hkquote.eastmoney.com/" target="_blank" class="live-btn live-btn-sm">🇭🇰 港股行情</a>
                 </div>
                 <div class="disclaimer">⚠️ 点击按钮跳转官方平台查看实时数据</div>
             </div>
+            <!-- 行业动态 -->
             <div class="card">
                 <div class="card-title">📰 行业动态</div>
                 <div class="news-tabs">
@@ -113,24 +122,22 @@
                 </div>
                 <div id="newsList" class="news-list"></div>
             </div>
+            <!-- 快捷入口 -->
             <div class="card">
-                <div class="card-title">💡 今日建议</div>
-                <div class="advice-box">
-                    <div class="advice-item"><strong>📊 市场观点：</strong>震荡整理，关注科技、消费板块机会</div>
-                    <div class="advice-item"><strong>⚖️ 资产配置：</strong>股票 60% + 债券 30% + 黄金 10%</div>
-                    <div class="advice-item"><strong>🎯 操作策略：</strong>逢低布局，避免追高，坚持定投</div>
-                </div>
-                <div class="disclaimer">⚠️ 以上建议仅供参考，不构成投资建议。市场有风险，投资需谨慎。</div>
-            </div>
-            <div class="card">
-                <div class="card-title">🚀 快捷入口</div>
+                <div class="card-title">🚀 专业平台</div>
                 <div class="quick-links">
-                    <a href="https://www.chinanews.com.cn/cj/" target="_blank" class="quick-link">📰 财经新闻</a>
-                    <a href="https://xueqiu.com/" target="_blank" class="quick-link">💬 雪球社区</a>
-                    <a href="https://www.jin10.com/" target="_blank" class="quick-link">⚡ 金十数据</a>
-                    <a href="https://wallstreetcn.com/" target="_blank" class="quick-link">📈 华尔街见闻</a>
-                    <a href="https://www.1234567.com.cn/" target="_blank" class="quick-link">💰 天天基金</a>
-                    <a href="https://stockapp.eastmoney.com/" target="_blank" class="quick-link">📊 东方财富</a>
+                    <a href="https://m.chinanews.com/" target="_blank" class="quick-link"><span class="quick-link-icon">📰</span><span>财经新闻</span></a>
+                    <a href="https://xueqiu.com/" target="_blank" class="quick-link"><span class="quick-link-icon">💬</span><span>雪球社区</span></a>
+                    <a href="https://m.jin10.com/" target="_blank" class="quick-link"><span class="quick-link-icon">⚡</span><span>金十数据</span></a>
+                    <a href="https://wallstreetcn.com/" target="_blank" class="quick-link"><span class="quick-link-icon">📈</span><span>华尔街见闻</span></a>
+                    <a href="https://m.1234567.com.cn/" target="_blank" class="quick-link"><span class="quick-link-icon">💰</span><span>天天基金</span></a>
+                    <a href="https://m.eastmoney.com/" target="_blank" class="quick-link"><span class="quick-link-icon">📊</span><span>东方财富</span></a>
+                    <a href="http://www.csrc.gov.cn/" target="_blank" class="quick-link"><span class="quick-link-icon">🏛️</span><span>证监会</span></a>
+                    <a href="https://www.cbirc.gov.cn/" target="_blank" class="quick-link"><span class="quick-link-icon">🏦</span><span>银保监会</span></a>
+                    <a href="https://www.pbc.gov.cn/" target="_blank" class="quick-link"><span class="quick-link-icon">🏛️</span><span>中国人民银行</span></a>
+                    <a href="https://www.cls.cn/" target="_blank" class="quick-link"><span class="quick-link-icon">📱</span><span>财联社</span></a>
+                    <a href="https://m.sina.com.cn/finance/" target="_blank" class="quick-link"><span class="quick-link-icon">📰</span><span>新浪财经</span></a>
+                    <a href="https://m.hexun.com/" target="_blank" class="quick-link"><span class="quick-link-icon">💹</span><span>和讯财经</span></a>
                 </div>
             </div>
         </div>
@@ -193,7 +200,11 @@
         <div class="nav-item" onclick="showSection('knowledge')"><div class="nav-icon">📚</div><div>知识库</div></div>
         <div class="nav-item" onclick="showSection('platform')"><div class="nav-icon">🏆</div><div>平台</div></div>
     </div>
-    <div class="footer">⚠️ 投资有风险，决策需谨慎<br>本应用仅提供信息参考，不构成投资建议</div>
+    <div class="footer">
+        <div>⚠️ 投资有风险，决策需谨慎</div>
+        <div style="margin-top:6px;">💰 个人理财助手 v4.1 | 2026-03-15 更新</div>
+        <div style="margin-top:6px; color:#ccc;">本应用仅提供信息参考，不构成投资建议</div>
+    </div>
     <script>
         const newsData = {
             finance: [
@@ -230,17 +241,17 @@
             ]
         };
         const articles = [
-            {c:'入门',t:'什么是理财？',s:'理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。',content:'<h1>什么是理财？</h1><p>理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。理财不仅仅是投资，还包括储蓄、保险、税务规划等多个方面。</p><h2>理财的核心目标</h2><ol><li>保障日常生活开支</li><li>应对突发事件（紧急备用金）</li><li>实现财富增值</li><li>为未来目标做准备（购房、教育、养老）</li></ol><h2>理财的基本原则</h2><ul><li><strong>量入为出：</strong>支出不要超过收入，先储蓄后消费</li><li><strong>分散投资：</strong>不要把鸡蛋放在一个篮子里</li><li><strong>长期思维：</strong>理财是马拉松，不是短跑</li><li><strong>风险匹配：</strong>选择与自己风险承受能力匹配的产品</li><li><strong>持续学习：</strong>市场在变，知识需要更新</li></ul>'},
-            {c:'入门',t:'复利效应：世界第八大奇迹',s:'被爱因斯坦称为"世界第八大奇迹"。复利公式：FV = PV × (1 + r)^n',content:'<h1>复利效应：世界第八大奇迹</h1><p>复利是指利息再生利息的效果，被爱因斯坦称为"世界第八大奇迹"。</p><h2>复利公式</h2><p><strong>FV = PV × (1 + r)^n</strong></p><ul><li>FV：未来价值（Future Value）</li><li>PV：现值/本金（Present Value）</li><li>r：年化收益率</li><li>n：投资年限</li></ul><h2>复利的威力</h2><p>每月定投 1000 元，年化 8%，30 年后本息合计约 150 万元（本金只有 36 万）</p><h2>启动复利的关键</h2><ol><li><strong>尽早开始：</strong>时间越长，复利效应越明显</li><li><strong>保持稳定：</strong>持续投入，不要中断</li><li><strong>追求合理收益：</strong>年化 8-12% 是可行目标</li></ol>'},
-            {c:'入门',t:'紧急备用金：理财的基石',s:'理财的第一步，应对突发事件的专项资金。建议 3-6 个月生活费。',content:'<h1>紧急备用金：理财的基石</h1><p>紧急备用金是应对突发事件的专项资金，是理财的第一步，必须在开始投资前准备好。</p><h2>建议金额</h2><ul><li>单身：3-6 个月生活费</li><li>已婚：6-12 个月生活费</li><li>自由职业：12 个月以上</li></ul><h2>存放位置</h2><ul><li>货币基金（余额宝、零钱通）</li><li>银行活期存款</li><li>短期理财产品（7 天以内）</li></ul><h2>使用原则</h2><ol><li>只用于真正的紧急情况（医疗、失业等）</li><li>使用后尽快补足</li><li>不要用于投资或消费</li></ol>'},
-            {c:'基金',t:'基金分类大全',s:'货币基金 R1、债券基金 R2、混合基金 R3、股票基金 R4、指数基金 R3',content:'<h1>基金分类大全</h1><table style="width:100%;border-collapse:collapse;"><tr style="background:#f0f5ff;"><th style="padding:10px;border:1px solid #d9d9d9;">类型</th><th style="padding:10px;border:1px solid #d9d9d9;">风险</th><th style="padding:10px;border:1px solid #d9d9d9;">预期收益</th><th style="padding:10px;border:1px solid #d9d9d9;">适合人群</th></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">货币基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R1（低）</td><td style="padding:10px;border:1px solid #d9d9d9;">2-3%</td><td style="padding:10px;border:1px solid #d9d9d9;">现金管理</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">债券基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R2（中低）</td><td style="padding:10px;border:1px solid #d9d9d9;">3-5%</td><td style="padding:10px;border:1px solid #d9d9d9;">稳健型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">混合基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R3（中）</td><td style="padding:10px;border:1px solid #d9d9d9;">6-12%</td><td style="padding:10px;border:1px solid #d9d9d9;">平衡型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">股票基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R4（中高）</td><td style="padding:10px;border:1px solid #d9d9d9;">8-15%</td><td style="padding:10px;border:1px solid #d9d9d9;">进取型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">指数基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R3（中）</td><td style="padding:10px;border:1px solid #d9d9d9;">跟随指数</td><td style="padding:10px;border:1px solid #d9d9d9;">长期定投</td></tr></table>'},
-            {c:'基金',t:'如何挑选基金：5 个关键指标',s:'历史业绩、基金经理、基金规模、费率、基金公司',content:'<h1>如何挑选基金：5 个关键指标</h1><h2>1. 历史业绩</h2><ul><li>看 3 年、5 年长期业绩，不要只看最近 1 年</li><li>对比同类基金和业绩基准</li><li>关注最大回撤（风险承受能力）</li></ul><h2>2. 基金经理</h2><ul><li>从业年限 5 年以上为佳</li><li>管理规模 10-100 亿适中</li><li>历史业绩稳定，风格不漂移</li></ul><h2>3. 基金规模</h2><ul><li>太小（<2 亿）可能清盘</li><li>太大（>100 亿）操作困难</li><li>20-50 亿较为理想</li></ul><h2>4. 费率</h2><ul><li>管理费：1-1.5%/年</li><li>托管费：0.1-0.25%/年</li><li>申购费：1-1.5%（可打一折）</li></ul><h2>5. 基金公司</h2><ul><li>选择大型知名基金公司</li><li>公司整体投研实力</li><li>产品线是否丰富</li></ul>'},
-            {c:'基金',t:'指数基金：最适合新手的投资工具',s:'分散风险、费用低廉、透明度高、长期上涨',content:'<h1>指数基金：最适合新手的投资工具</h1><h2>四大优势</h2><ul><li>✅ <strong>分散风险：</strong>买入一篮子股票，避免个股暴雷</li><li>✅ <strong>费用低廉：</strong>管理费通常 0.5% 以下，主动基金 1/3</li><li>✅ <strong>透明度高：</strong>成分股公开，规则明确</li><li>✅ <strong>长期上涨：</strong>跟随经济发展，长期趋势向上</li></ul><h2>主流指数</h2><ul><li><strong>沪深 300：</strong>A 股大盘股代表，中国经济晴雨表</li><li><strong>中证 500：</strong>A 股中盘股代表，成长性强</li><li><strong>创业板指：</strong>成长股代表，波动大收益高</li><li><strong>恒生指数：</strong>港股大盘，估值较低</li><li><strong>标普 500：</strong>美股大盘，全球配置</li></ul><h2>定投策略</h2><p>每月固定日期投入固定金额，长期持有（3-5 年以上）</p>'},
-            {c:'股票',t:'股票投资基础：核心概念',s:'市盈率 PE、市净率 PB、股息率、ROE',content:'<h1>股票投资基础：核心概念</h1><h2>市盈率（PE）</h2><p><strong>PE = 股价 / 每股收益</strong></p><ul><li>衡量估值高低</li><li>PE 越低，理论上越便宜</li><li>不同行业 PE 不同，要横向对比</li></ul><h2>市净率（PB）</h2><p><strong>PB = 股价 / 每股净资产</strong></p><ul><li>适合重资产行业（银行、钢铁）</li><li>PB<1 可能低估，也可能有问题</li></ul><h2>股息率</h2><p><strong>股息率 = 年度分红 / 股价</strong></p><ul><li>衡量现金回报</li><li>银行股通常 5-7%</li><li>成长股通常很低或不分红</li></ul><h2>ROE（净资产收益率）</h2><p><strong>ROE = 净利润 / 净资产</strong></p><ul><li>衡量公司盈利能力</li><li>ROE>15% 为优秀</li><li>长期维持高 ROE 的公司很少</li></ul>'},
-            {c:'股票',t:'新手投资建议',s:'先学习、用闲钱、从指数基金开始、长期持有、分散投资',content:'<h1>新手投资建议</h1><h2>五条黄金法则</h2><ol><li><strong>先学习基础知识</strong><br>不要盲目跟风，理解自己在买什么</li><li><strong>用闲钱投资</strong><br>只用 3-5 年不用的钱投资，避免被迫割肉</li><li><strong>从指数基金开始</strong><br>不要一开始就炒个股，指数基金更适合新手</li><li><strong>长期持有</strong><br>短期波动无法预测，长期趋势相对确定</li><li><strong>分散投资</strong><br>不要 All in 一只股票或一个行业</li></ol><h2>常见误区</h2><ul><li>❌ 追涨杀跌</li><li>❌ 听消息炒股</li><li>❌ 频繁交易</li><li>❌ 借钱投资</li><li>❌ 想一夜暴富</li></ul>'},
-            {c:'配置',t:'资产配置：不要把鸡蛋放在一个篮子里',s:'标准普尔模型、年龄配置法',content:'<h1>资产配置：不要把鸡蛋放在一个篮子里</h1><h2>标准普尔家庭资产象限图</h2><ul><li><strong>10% 要花的钱：</strong>日常开销（3-6 个月生活费）</li><li><strong>20% 保命的钱：</strong>保险保障（医疗、重疾、意外）</li><li><strong>30% 生钱的钱：</strong>股票、基金等（追求增值）</li><li><strong>40% 保本的钱：</strong>债券、存款等（稳健保值）</li></ul><h2>年龄配置法</h2><p><strong>股票比例 = (100 - 年龄)%</strong></p><ul><li>25 岁：75% 股票 + 25% 债券</li><li>35 岁：65% 股票 + 35% 债券</li><li>45 岁：55% 股票 + 45% 债券</li><li>55 岁：45% 股票 + 55% 债券</li></ul><h2>再平衡策略</h2><p>每年调整一次，恢复目标配置比例</p>'},
-            {c:'配置',t:'基金定投：懒人理财神器',s:'分散风险、平摊成本、强制储蓄、省时省力',content:'<h1>基金定投：懒人理财神器</h1><h2>四大优势</h2><ul><li><strong>分散风险：</strong>分批买入，避免一次性买在高点</li><li><strong>平摊成本：</strong>市场波动时自动低吸高抛</li><li><strong>强制储蓄：</strong>培养良好的理财习惯</li><li><strong>省时省力：</strong>设置自动扣款，无需择时</li></ul><h2>定投策略</h2><ul><li><strong>普通定投：</strong>固定金额，固定时间（推荐每月发工资后）</li><li><strong>智能定投：</strong>根据市场估值调整金额（低估多投，高估少投）</li><li><strong>目标止盈：</strong>达到目标收益率后赎回（如 20%、30%）</li></ul><h2>定投误区</h2><ul><li>❌ 亏损就停止（应该坚持）</li><li>❌ 频繁更换基金（选定优质基金长期坚持）</li><li>❌ 期望暴富（定投是长期策略，至少 3-5 年）</li></ul>'},
-            {c:'配置',t:'理财规划：不同人生阶段的配置',s:'20-30 岁积累期、30-40 岁成长期、40-50 岁成熟期、50 岁 + 退休期',content:'<h1>理财规划：不同人生阶段的配置</h1><table style="width:100%;border-collapse:collapse;"><tr style="background:#f0f5ff;"><th style="padding:10px;border:1px solid #d9d9d9;">年龄段</th><th style="padding:10px;border:1px solid #d9d9d9;">特点</th><th style="padding:10px;border:1px solid #d9d9d9;">配置建议</th></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">20-30 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">积累期<br>收入增长快<br>风险承受强</td><td style="padding:10px;border:1px solid #d9d9d9;">70% 股票 + 30% 债券<br>重点投资自己<br>养成储蓄习惯</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">30-40 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">成长期<br>收入稳定<br>家庭责任重</td><td style="padding:10px;border:1px solid #d9d9d9;">60% 股票 + 30% 债券 + 10% 黄金<br>配置保险<br>准备子女教育金</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">40-50 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">成熟期<br>收入高峰<br>养老规划</td><td style="padding:10px;border:1px solid #d9d9d9;">50% 股票 + 40% 债券 + 10% 现金<br>加大养老储备<br>降低风险敞口</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">50 岁+</td><td style="padding:10px;border:1px solid #d9d9d9;">退休期<br>收入下降<br>保本为主</td><td style="padding:10px;border:1px solid #d9d9d9;">30% 股票 + 50% 债券 + 20% 现金<br>以保本为主<br>确保稳定现金流</td></tr></table>'},
+            {c:'入门',t:'什么是理财？',s:'理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。',content:'<h1>什么是理财？</h1><p>理财是指通过合理规划个人或家庭的收入和支出，实现财富保值增值的过程。理财不仅仅是投资，还包括储蓄、保险、税务规划等多个方面。</p><h2>💰 理财的核心目标</h2><ol><li><strong>保障日常生活开支：</strong>确保基本生活需求</li><li><strong>应对突发事件：</strong>建立紧急备用金（3-6 个月生活费）</li><li><strong>实现财富增值：</strong>让钱生钱，跑赢通胀</li><li><strong>为未来目标做准备：</strong>购房、教育、养老等长期目标</li></ol><h2>📚 理财的基本原则</h2><ul><li><strong>量入为出：</strong>支出不要超过收入，先储蓄后消费</li><li><strong>分散投资：</strong>不要把鸡蛋放在一个篮子里</li><li><strong>长期思维：</strong>理财是马拉松，不是短跑</li><li><strong>风险匹配：</strong>选择与自己风险承受能力匹配的产品</li><li><strong>持续学习：</strong>市场在变，知识需要更新</li></ul><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>小明月收入 1 万元，每月强制储蓄 2000 元（20%），剩余 8000 元用于生活开支。一年后存下 2.4 万元，其中 1 万元作为紧急备用金，1.4 万元开始定投指数基金。</p></div>'},
+            {c:'入门',t:'复利效应：世界第八大奇迹',s:'被爱因斯坦称为"世界第八大奇迹"。复利公式：FV = PV × (1 + r)^n',content:'<h1>复利效应：世界第八大奇迹</h1><p>复利是指利息再生利息的效果，被爱因斯坦称为"世界第八大奇迹"。</p><h2>📐 复利公式</h2><p><strong>FV = PV × (1 + r)^n</strong></p><ul><li><strong>FV：</strong>未来价值（Future Value）</li><li><strong>PV：</strong>现值/本金（Present Value）</li><li><strong>r：</strong>年化收益率</li><li><strong>n：</strong>投资年限</li></ul><h2>💡 复利的威力</h2><p>每月定投 1000 元，年化 8%，30 年后本息合计约 150 万元（本金只有 36 万）</p><div class="case-box"><div class="case-box-title">📖 实际案例对比</div><p><strong>A 先生：</strong>25 岁开始每月定投 1000 元，年化 8%，坚持到 60 岁</p><p>结果：投入 42 万，最终获得 <strong>210 万</strong></p><p style="margin-top:10px;"><strong>B 先生：</strong>35 岁开始每月定投 1000 元，年化 8%，坚持到 60 岁</p><p>结果：投入 30 万，最终获得 <strong>95 万</strong></p><p style="margin-top:10px;"><strong>差距：</strong>A 先生只早开始 10 年，最终收益是 B 先生的 <em>2.2 倍</em>！</p></div><h2>🚀 启动复利的关键</h2><ol><li><strong>尽早开始：</strong>时间越长，复利效应越明显</li><li><strong>保持稳定：</strong>持续投入，不要中断</li><li><strong>追求合理收益：</strong>年化 8-12% 是可行目标</li></ol>'},
+            {c:'入门',t:'紧急备用金：理财的基石',s:'理财的第一步，应对突发事件的专项资金。建议 3-6 个月生活费。',content:'<h1>紧急备用金：理财的基石</h1><p>紧急备用金是应对突发事件的专项资金，是理财的第一步，必须在开始投资前准备好。</p><h2>💰 建议金额</h2><ul><li><strong>单身：</strong>3-6 个月生活费</li><li><strong>已婚：</strong>6-12 个月生活费</li><li><strong>自由职业：</strong>12 个月以上（收入不稳定）</li></ul><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>小王在上海工作，每月生活费 5000 元。他准备了 3 万元紧急备用金（6 个月生活费），存放在余额宝里。</p><p style="margin-top:10px;">一年后，公司突然裁员，小王用这笔钱支撑了 5 个月的生活，直到找到新工作。如果没有这笔钱，他可能被迫卖出正在亏损的基金，造成实际损失。</p></div><h2>🏦 存放位置</h2><ul><li><strong>货币基金：</strong>余额宝、零钱通（年化 2-3%，随时可取）</li><li><strong>银行活期存款：</strong>安全性最高，但收益低</li><li><strong>短期理财产品：</strong>7 天以内，收益略高</li></ul><h2>⚠️ 使用原则</h2><ol><li>只用于真正的紧急情况（医疗、失业等）</li><li>使用后尽快补足</li><li>不要用于投资或消费</li></ol>'},
+            {c:'基金',t:'基金分类大全',s:'货币基金 R1、债券基金 R2、混合基金 R3、股票基金 R4、指数基金 R3',content:'<h1>基金分类大全</h1><table style="width:100%;border-collapse:collapse;"><tr style="background:#f0f5ff;"><th style="padding:10px;border:1px solid #d9d9d9;">类型</th><th style="padding:10px;border:1px solid #d9d9d9;">风险</th><th style="padding:10px;border:1px solid #d9d9d9;">预期收益</th><th style="padding:10px;border:1px solid #d9d9d9;">适合人群</th></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">货币基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R1（低）</td><td style="padding:10px;border:1px solid #d9d9d9;">2-3%</td><td style="padding:10px;border:1px solid #d9d9d9;">现金管理</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">债券基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R2（中低）</td><td style="padding:10px;border:1px solid #d9d9d9;">3-5%</td><td style="padding:10px;border:1px solid #d9d9d9;">稳健型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">混合基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R3（中）</td><td style="padding:10px;border:1px solid #d9d9d9;">6-12%</td><td style="padding:10px;border:1px solid #d9d9d9;">平衡型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">股票基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R4（中高）</td><td style="padding:10px;border:1px solid #d9d9d9;">8-15%</td><td style="padding:10px;border:1px solid #d9d9d9;">进取型</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">指数基金</td><td style="padding:10px;border:1px solid #d9d9d9;">R3（中）</td><td style="padding:10px;border:1px solid #d9d9d9;">跟随指数</td><td style="padding:10px;border:1px solid #d9d9d9;">长期定投</td></tr></table><h2>📊 详细解析</h2><h3>1. 货币基金</h3><p>主要投资短期货币工具（国债、央行票据、银行存款等），风险极低，流动性好，适合放紧急备用金。</p><h3>2. 债券基金</h3><p>主要投资国债、企业债等，风险较低，收益稳定，适合保守型投资者。</p><h3>3. 混合基金</h3><p>同时投资股票和债券，比例灵活，风险和收益中等，适合平衡型投资者。</p><h3>4. 股票基金</h3><p>80% 以上资金投资股票，风险较高，长期收益也较高，适合进取型投资者。</p><h3>5. 指数基金</h3><p>跟踪特定指数（如沪深 300），分散投资，费用低廉，适合长期定投。</p>'},
+            {c:'基金',t:'如何挑选基金：5 个关键指标',s:'历史业绩、基金经理、基金规模、费率、基金公司',content:'<h1>如何挑选基金：5 个关键指标</h1><h2>1. 历史业绩</h2><ul><li>看 3 年、5 年长期业绩，不要只看最近 1 年</li><li>对比同类基金和业绩基准</li><li>关注最大回撤（风险承受能力）</li></ul><h2>2. 基金经理</h2><ul><li>从业年限 5 年以上为佳</li><li>管理规模 10-100 亿适中</li><li>历史业绩稳定，风格不漂移</li></ul><h2>3. 基金规模</h2><ul><li>太小（<2 亿）可能清盘</li><li>太大（>100 亿）操作困难</li><li>20-50 亿较为理想</li></ul><h2>4. 费率</h2><ul><li>管理费：1-1.5%/年</li><li>托管费：0.1-0.25%/年</li><li>申购费：1-1.5%（可打一折）</li></ul><h2>5. 基金公司</h2><ul><li>选择大型知名基金公司</li><li>公司整体投研实力</li><li>产品线是否丰富</li></ul><div class="case-box"><div class="case-box-title">📖 实战案例</div><p>挑选沪深 300 指数基金：</p><ol><li>对比 5 家基金公司的沪深 300 基金</li><li>选择费率最低的（管理费 0.5% vs 1.2%）</li><li>检查跟踪误差（越小越好）</li><li>确认基金规模适中（20-50 亿）</li><li>最终选择：某大型基金公司的沪深 300ETF 联接</li></ol></div>'},
+            {c:'基金',t:'指数基金：最适合新手的投资工具',s:'分散风险、费用低廉、透明度高、长期上涨',content:'<h1>指数基金：最适合新手的投资工具</h1><h2>✅ 四大优势</h2><ul><li><strong>分散风险：</strong>买入一篮子股票，避免个股暴雷</li><li><strong>费用低廉：</strong>管理费通常 0.5% 以下，主动基金的 1/3</li><li><strong>透明度高：</strong>成分股公开，规则明确</li><li><strong>长期上涨：</strong>跟随经济发展，长期趋势向上</li></ul><h2>📊 主流指数</h2><ul><li><strong>沪深 300：</strong>A 股大盘股代表，中国经济晴雨表</li><li><strong>中证 500：</strong>A 股中盘股代表，成长性强</li><li><strong>创业板指：</strong>成长股代表，波动大收益高</li><li><strong>恒生指数：</strong>港股大盘，估值较低</li><li><strong>标普 500：</strong>美股大盘，全球配置</li></ul><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>小李从 2020 年开始每月定投 1000 元沪深 300 指数基金：</p><ul><li>2020 年：投入 1.2 万，收益 +25%</li><li>2021 年：投入 1.2 万，收益 -5%</li><li>2022 年：投入 1.2 万，收益 -15%</li><li>2023 年：投入 1.2 万，收益 +12%</li></ul><p style="margin-top:10px;">4 年总投入 4.8 万，账户总额 5.9 万，<strong>累计收益 23%</strong>，年化约 5.5%。</p></div><h2>🎯 定投策略</h2><p>每月固定日期投入固定金额，长期持有（3-5 年以上）</p>'},
+            {c:'股票',t:'股票投资基础：核心概念',s:'市盈率 PE、市净率 PB、股息率、ROE',content:'<h1>股票投资基础：核心概念</h1><h2>📊 市盈率（PE）</h2><p><strong>PE = 股价 / 每股收益</strong></p><ul><li>衡量估值高低</li><li>PE 越低，理论上越便宜</li><li>不同行业 PE 不同，要横向对比</li></ul><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>贵州茅台股价 1500 元，每股收益 50 元，PE = 1500/50 = 30 倍</p><p>五粮液股价 150 元，每股收益 6 元，PE = 150/6 = 25 倍</p><p>从 PE 看，五粮液比茅台"便宜"，但还要结合成长性判断。</p></div><h2>📈 市净率（PB）</h2><p><strong>PB = 股价 / 每股净资产</strong></p><ul><li>适合重资产行业（银行、钢铁）</li><li>PB<1 可能低估，也可能有问题</li></ul><h2>💰 股息率</h2><p><strong>股息率 = 年度分红 / 股价</strong></p><ul><li>衡量现金回报</li><li>银行股通常 5-7%</li><li>成长股通常很低或不分红</li></ul><h2>🎯 ROE（净资产收益率）</h2><p><strong>ROE = 净利润 / 净资产</strong></p><ul><li>衡量公司盈利能力</li><li>ROE>15% 为优秀</li><li>长期维持高 ROE 的公司很少</li></ul>'},
+            {c:'股票',t:'新手投资建议',s:'先学习、用闲钱、从指数基金开始、长期持有、分散投资',content:'<h1>新手投资建议</h1><h2>📚 五条黄金法则</h2><ol><li><strong>先学习基础知识</strong><br>不要盲目跟风，理解自己在买什么</li><li><strong>用闲钱投资</strong><br>只用 3-5 年不用的钱投资，避免被迫割肉</li><li><strong>从指数基金开始</strong><br>不要一开始就炒个股，指数基金更适合新手</li><li><strong>长期持有</strong><br>短期波动无法预测，长期趋势相对确定</li><li><strong>分散投资</strong><br>不要 All in 一只股票或一个行业</li></ol><h2>⚠️ 常见误区</h2><ul><li>❌ <strong>追涨杀跌：</strong>看到涨就买，看到跌就卖</li><li>❌ <strong>听消息炒股：</strong>轻信"内幕消息"</li><li>❌ <strong>频繁交易：</strong>今天买明天卖，手续费都赚不回来</li><li>❌ <strong>借钱投资：</strong>杠杆放大风险，可能血本无归</li><li>❌ <strong>想一夜暴富：</strong>投资是长期过程，不是赌博</li></ul><div class="case-box"><div class="case-box-title">📖 真实案例警示</div><p>2015 年股灾，很多新手借钱炒股，结果：</p><ul><li>投入 10 万（其中 5 万是借的）</li><li>股灾后只剩 3 万</li><li>欠债 5 万，实际亏损 12 万</li></ul><p><strong>教训：</strong>永远不要用借钱投资！</p></div>'},
+            {c:'配置',t:'资产配置：不要把鸡蛋放在一个篮子里',s:'标准普尔模型、年龄配置法',content:'<h1>资产配置：不要把鸡蛋放在一个篮子里</h1><h2>📊 标准普尔家庭资产象限图</h2><ul><li><strong>10% 要花的钱：</strong>日常开销（3-6 个月生活费）</li><li><strong>20% 保命的钱：</strong>保险保障（医疗、重疾、意外）</li><li><strong>30% 生钱的钱：</strong>股票、基金等（追求增值）</li><li><strong>40% 保本的钱：</strong>债券、存款等（稳健保值）</li></ul><h2>🎯 年龄配置法</h2><p><strong>股票比例 = (100 - 年龄)%</strong></p><ul><li>25 岁：75% 股票 + 25% 债券</li><li>35 岁：65% 股票 + 35% 债券</li><li>45 岁：55% 股票 + 45% 债券</li><li>55 岁：45% 股票 + 55% 债券</li></ul><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>张先生，35 岁，家庭资产 100 万：</p><ul><li>10 万（10%）：活期存款，日常开销</li><li>20 万（20%）：保险（重疾 + 医疗 + 意外）</li><li>30 万（30%）：股票基金（追求增值）</li><li>40 万（40%）：债券基金 + 银行理财（稳健保值）</li></ul></div><h2>🔄 再平衡策略</h2><p>每年调整一次，恢复目标配置比例</p>'},
+            {c:'配置',t:'基金定投：懒人理财神器',s:'分散风险、平摊成本、强制储蓄、省时省力',content:'<h1>基金定投：懒人理财神器</h1><h2>✅ 四大优势</h2><ul><li><strong>分散风险：</strong>分批买入，避免一次性买在高点</li><li><strong>平摊成本：</strong>市场波动时自动低吸高抛</li><li><strong>强制储蓄：</strong>培养良好的理财习惯</li><li><strong>省时省力：</strong>设置自动扣款，无需择时</li></ul><h2>📊 定投原理</h2><p>每月固定金额买入，价格低时买得多，价格高时买得少，长期下来平均成本低于市场平均价格。</p><div class="case-box"><div class="case-box-title">📖 实际案例</div><p>小王每月定投 1000 元某指数基金：</p><ul><li>第 1 月：净值 1.0 元，买入 1000 份</li><li>第 2 月：净值 0.8 元，买入 1250 份</li><li>第 3 月：净值 1.2 元，买入 833 份</li></ul><p style="margin-top:10px;">总投入 3000 元，总份额 3083 份，平均成本 0.97 元/份，低于平均净值 1.0 元。</p></div><h2>🎯 定投策略</h2><ul><li><strong>普通定投：</strong>固定金额，固定时间（推荐每月发工资后）</li><li><strong>智能定投：</strong>根据市场估值调整金额（低估多投，高估少投）</li><li><strong>目标止盈：</strong>达到目标收益率后赎回（如 20%、30%）</li></ul><h2>⚠️ 定投误区</h2><ul><li>❌ 亏损就停止（应该坚持）</li><li>❌ 频繁更换基金（选定优质基金长期坚持）</li><li>❌ 期望暴富（定投是长期策略，至少 3-5 年）</li></ul>'},
+            {c:'配置',t:'理财规划：不同人生阶段的配置',s:'20-30 岁积累期、30-40 岁成长期、40-50 岁成熟期、50 岁 + 退休期',content:'<h1>理财规划：不同人生阶段的配置</h1><table style="width:100%;border-collapse:collapse;"><tr style="background:#f0f5ff;"><th style="padding:10px;border:1px solid #d9d9d9;">年龄段</th><th style="padding:10px;border:1px solid #d9d9d9;">特点</th><th style="padding:10px;border:1px solid #d9d9d9;">配置建议</th></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">20-30 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">积累期<br>收入增长快<br>风险承受强</td><td style="padding:10px;border:1px solid #d9d9d9;">70% 股票 + 30% 债券<br>重点投资自己<br>养成储蓄习惯</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">30-40 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">成长期<br>收入稳定<br>家庭责任重</td><td style="padding:10px;border:1px solid #d9d9d9;">60% 股票 + 30% 债券 + 10% 黄金<br>配置保险<br>准备子女教育金</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">40-50 岁</td><td style="padding:10px;border:1px solid #d9d9d9;">成熟期<br>收入高峰<br>养老规划</td><td style="padding:10px;border:1px solid #d9d9d9;">50% 股票 + 40% 债券 + 10% 现金<br>加大养老储备<br>降低风险敞口</td></tr><tr><td style="padding:10px;border:1px solid #d9d9d9;">50 岁+</td><td style="padding:10px;border:1px solid #d9d9d9;">退休期<br>收入下降<br>保本为主</td><td style="padding:10px;border:1px solid #d9d9d9;">30% 股票 + 50% 债券 + 20% 现金<br>以保本为主<br>确保稳定现金流</td></tr></table><h2>💡 关键建议</h2><h3>20-30 岁</h3><ul><li>重点投资自己（学习、技能提升）</li><li>养成强制储蓄习惯</li><li>可以承受较高风险，追求长期收益</li></ul><h3>30-40 岁</h3><ul><li>家庭责任加重，配置保险</li><li>准备子女教育金</li><li>平衡风险和收益</li></ul><h3>40-50 岁</h3><ul><li>收入达到高峰</li><li>加大养老储备</li><li>逐步降低风险</li></ul><h3>50 岁+</h3><ul><li>以保本为主</li><li>确保稳定现金流</li><li>享受退休生活</li></ul>'},
         ];
         function showSection(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
