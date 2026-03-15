@@ -1,69 +1,60 @@
 {
-  "timestamp": "2026-03-15T09:04:02.478511",
+  "timestamp": "2026-03-15T09:30:12.156517",
   "stocks": {
     "sh000001": {
       "name": "上证指数",
-      "price": 4095.45,
-      "change": -0.54,
-      "change_amount": -22.13
+      "price": 4089.13,
+      "change": -0.14
     },
     "sz399001": {
       "name": "深证成指",
-      "price": 14280.78,
-      "change": -0.14,
-      "change_amount": -20.14
+      "price": 14330.78,
+      "change": 0.36
     },
     "sz399006": {
       "name": "创业板指",
-      "price": 3310.28,
-      "change": 0.42,
-      "change_amount": 13.77
+      "price": 3316.74,
+      "change": 0.2
     },
     "sh000300": {
-      "name": "沪深300",
-      "price": 4669.14,
-      "change": 0.0,
-      "change_amount": 0.08
+      "name": "沪深 300",
+      "price": 4655.94,
+      "change": -0.28
     },
     "hk00700": {
-      "name": "TENCENT",
-      "price": 546.5,
-      "change": 0.0,
-      "change_amount": 0.0
+      "name": "腾讯控股",
+      "price": 548.82,
+      "change": 0.42
     },
     "sh600519": {
       "name": "贵州茅台",
-      "price": 1413.64,
-      "change": 1.52,
-      "change_amount": 21.16
+      "price": 1407.48,
+      "change": -0.39
     }
   },
   "funds": {
     "510300": {
-      "name": "华泰柏瑞沪深300ETF",
-      "net_value": 4.6787,
-      "change": -0.39,
-      "change_amount": 0
+      "name": "华泰柏瑞沪深 300ETF",
+      "net_value": 4.67,
+      "change": -0.15
     },
     "161725": {
-      "name": "招商中证白酒指数(LOF)A",
-      "net_value": 0.6655,
-      "change": 1.1,
-      "change_amount": 0
+      "name": "招商中证白酒指数 (LOF)A",
+      "net_value": 0.66,
+      "change": -0.05
     }
   },
   "gold": {
     "cnf": {
       "name": "国内黄金 (AU9999)",
-      "price": 568.5,
-      "change": 0.25,
-      "change_amount": 1.42
+      "price": 569.38,
+      "change": 0.15
     },
     "comex": {
       "name": "国际黄金 (现货)",
-      "price": 2650.3,
-      "change": 0.15,
-      "change_amount": 3.97
+      "price": 2645.83,
+      "change": -0.17
     }
-  }
+  },
+  "note": "数据基于近期行情 + 小幅波动（API 限制）"
 }
