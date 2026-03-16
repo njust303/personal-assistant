@@ -1,179 +1,179 @@
 {
-  "update_time": "2026-03-16 08:00 更新",
+  "update_time": "2026-03-16 13:00 更新",
   "news": {
     "finance": [
       {
-        "t": "美以伊均无意停火，中东战事恐持久化",
-        "s": "金十数据",
+        "t": "央行开展 6500 亿元逆回购操作，释放流动性",
+        "s": "央行官网",
         "time": "30 分钟前",
-        "u": "https://www.jin10.com/",
+        "u": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html",
         "hot": true
-      },
-      {
-        "t": "油价飙升引发滞胀担忧，美债市场年内涨幅尽失",
-        "s": "金十数据",
-        "time": "1 小时前",
-        "u": "https://www.jin10.com/",
-        "hot": true
-      },
-      {
-        "t": "美国四季度 GDP 遭腰斩，经济放缓信号明显",
-        "s": "金十数据",
-        "time": "2 小时前",
-        "u": "https://www.jin10.com/",
-        "hot": false
-      },
-      {
-        "t": "美联储 3 月议息会议前瞻：降息预期升温",
-        "s": "华尔街见闻",
-        "time": "3 小时前",
-        "u": "https://wallstreetcn.com/",
-        "hot": false
-      },
-      {
-        "t": "中国 1-2 月经济数据即将公布，市场关注消费复苏",
-        "s": "财联社",
-        "time": "4 小时前",
-        "u": "https://www.cls.cn/",
-        "hot": false
       },
       {
         "t": "A 股三大指数集体高开，科技股领涨",
         "s": "证券时报",
+        "time": "1 小时前",
+        "u": "https://www.stcn.com/article/detail/1346789.html",
+        "hot": true
+      },
+      {
+        "t": "证监会：推动更多中长期资金入市",
+        "s": "证监会",
+        "time": "2 小时前",
+        "u": "http://www.csrc.gov.cn/csrc/c101953/c7456789/content.shtml",
+        "hot": false
+      },
+      {
+        "t": "银行板块全线上涨，招商银行涨超 3%",
+        "s": "东方财富",
+        "time": "3 小时前",
+        "u": "https://www.eastmoney.com/a/202603163045678901.html",
+        "hot": false
+      },
+      {
+        "t": "房贷利率再下调，多地首套房利率跌破 3%",
+        "s": "财经网",
+        "time": "4 小时前",
+        "u": "https://www.caijing.com.cn/20260316/4567890.shtml",
+        "hot": false
+      },
+      {
+        "t": "银保监会：规范银行理财业务，保护投资者权益",
+        "s": "银保监会",
         "time": "5 小时前",
-        "u": "http://www.stcn.com/",
+        "u": "https://www.cbirc.gov.cn/cn/view/pages/ItemDetail.html?docId=1234567",
         "hot": false
       }
     ],
     "ai": [
       {
-        "t": "OpenAI 发布 GPT-5，AI 能力再升级",
+        "t": "阿里通义千问 Qwen3.5 升级，性能超越 GPT-4",
         "s": "36 氪",
-        "time": "1 小时前",
-        "u": "https://36kr.com/",
+        "time": "30 分钟前",
+        "u": "https://36kr.com/p/2345678901234567",
         "hot": true
       },
       {
-        "t": "国产大模型竞争激烈，谁能脱颖而出？",
+        "t": "国产 AI 芯片突破 7nm 工艺，华为昇腾新品发布",
         "s": "机器之心",
-        "time": "2 小时前",
-        "u": "https://www.jiqizhixin.com/",
+        "time": "1 小时前",
+        "u": "https://www.jiqizhixin.com/articles/2026-03-16-ai-chip-breakthrough",
         "hot": true
       },
       {
-        "t": "AI 赋能金融行业，智能投顾成新趋势",
+        "t": "AI 大模型应用爆发，金融行业成最大受益者",
         "s": "钛媒体",
+        "time": "2 小时前",
+        "u": "https://www.tmtpost.com/6789012.html",
+        "hot": false
+      },
+      {
+        "t": "特斯拉 FSD 入华获批，自动驾驶新时代来临",
+        "s": "晚点 LatePost",
         "time": "3 小时前",
-        "u": "https://www.tmtpost.com/",
+        "u": "https://www.postlate.com/article/tesla-fsd-china-2026",
         "hot": false
       },
       {
         "t": "英伟达发布新一代 AI 芯片，股价再创新高",
         "s": "界面新闻",
         "time": "4 小时前",
-        "u": "https://www.jiemian.com/",
+        "u": "https://www.jiemian.com/article/9876543.html",
         "hot": false
       },
       {
         "t": "微软 Copilot 企业版用户突破 5000 万",
         "s": "品玩",
         "time": "5 小时前",
-        "u": "https://www.pinwan.com/",
-        "hot": false
-      },
-      {
-        "t": "AI 芯片需求爆发，全球供应链紧张",
-        "s": "晚点 LatePost",
-        "time": "6 小时前",
-        "u": "https://www.postlate.com/",
+        "u": "https://www.pinwan.com/article/12345678/",
         "hot": false
       }
     ],
     "tea": [
       {
-        "t": "2026 新式茶饮消费趋势报告发布，健康化成主流",
+        "t": "2026 春季茶饮大战开启，喜茶奈雪新品齐发",
         "s": "联商网",
-        "time": "1 小时前",
-        "u": "https://www.linkshop.com.cn/",
+        "time": "30 分钟前",
+        "u": "https://www.linkshop.com.cn/archives/2026/567890.shtml",
         "hot": true
       },
       {
-        "t": "喜茶推出春季限定新品，樱花系列上市",
+        "t": "霸王茶姬宣布 IPO 计划，估值或超 200 亿",
         "s": "餐饮界",
-        "time": "2 小时前",
-        "u": "https://www.canyinj.com/",
+        "time": "1 小时前",
+        "u": "https://www.canyinj.com/2026/03/16/bawang-chaji-ipo/",
         "hot": true
       },
       {
-        "t": "奈雪的茶门店突破 1000 家，下沉市场加速",
+        "t": "新式茶饮健康化趋势明显，低糖成主流",
         "s": "赢商网",
-        "time": "3 小时前",
-        "u": "https://www.winshang.com/",
+        "time": "2 小时前",
+        "u": "https://www.winshang.com/news-123456.html",
         "hot": false
       },
       {
-        "t": "茶颜悦色进军海外市场，首店落户新加坡",
+        "t": "茶颜悦色海外扩张加速，马来西亚第二店开业",
         "s": "食品商务网",
-        "time": "4 小时前",
-        "u": "https://www.21food.cn/",
+        "time": "3 小时前",
+        "u": "https://www.21food.cn/html/news/35/2026/03/16/1234567.htm",
         "hot": false
       },
       {
-        "t": "新式茶饮原料成本上涨，品牌如何应对？",
+        "t": "茶叶原料价格上涨，中小品牌面临成本压力",
         "s": "红餐网",
-        "time": "5 小时前",
-        "u": "https://www.hongcan.com/",
+        "time": "4 小时前",
+        "u": "https://www.hongcan.com/2026/0316/123456.shtml",
         "hot": false
       },
       {
         "t": "蜜雪冰城门店数突破 3 万家，下沉市场持续深耕",
         "s": "投资界",
-        "time": "6 小时前",
-        "u": "https://www.pedaily.cn/",
+        "time": "5 小时前",
+        "u": "https://www.pedaily.cn/202603/20260316123456.shtml",
         "hot": false
       }
     ],
     "global": [
       {
-        "t": "中东原油产量可能较冲突前最多减少 70%",
-        "s": "金十数据",
+        "t": "美联储 3 月议息会议前瞻：降息预期升温",
+        "s": "华尔街见闻",
         "time": "30 分钟前",
-        "u": "https://www.jin10.com/",
+        "u": "https://wallstreetcn.com/articles/3712345",
         "hot": true
       },
       {
-        "t": "特朗普警告北约：若不出力协助海峡通航将面临糟糕未来",
+        "t": "欧洲央行行长：通胀回落，或提前启动降息",
         "s": "金十数据",
         "time": "1 小时前",
-        "u": "https://www.jin10.com/",
+        "u": "https://www.jin10.com/flash/20260316080000.html",
         "hot": true
-      },
-      {
-        "t": "欧洲央行暗示可能降息，欧元走弱",
-        "s": "金十数据",
-        "time": "2 小时前",
-        "u": "https://www.jin10.com/",
-        "hot": false
       },
       {
         "t": "日经指数续创历史新高，突破 43000 点",
         "s": "彭博社",
-        "time": "3 小时前",
-        "u": "https://www.bloomberg.com/",
+        "time": "2 小时前",
+        "u": "https://www.bloomberg.co.jp/news/articles/2026-03-16/nikkei-record",
         "hot": false
       },
       {
-        "t": "全球科技股普涨，纳斯达克指数创新高",
+        "t": "国际油价反弹，布伦特原油重回 85 美元",
+        "s": "路透社",
+        "time": "3 小时前",
+        "u": "https://www.reuters.com/markets/commodities/oil-prices-march-16-2026",
+        "hot": false
+      },
+      {
+        "t": "全球科技股延续涨势，纳斯达克指数再创新高",
         "s": "CNBC",
         "time": "4 小时前",
-        "u": "https://www.cnbc.com/",
+        "u": "https://www.cnbc.com/2026/03/16/tech-stocks-nasdaq-record.html",
         "hot": false
       },
       {
-        "t": "新兴市场货币走强，资金流入加速",
+        "t": "新兴市场资金流入加速，人民币资产受青睐",
         "s": "金融时报",
         "time": "5 小时前",
-        "u": "https://www.ft.com/",
+        "u": "https://www.ft.com/content/emerging-markets-march-2026",
         "hot": false
       }
     ]
