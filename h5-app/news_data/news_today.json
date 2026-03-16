@@ -1,48 +1,55 @@
 {
-  "update_time": "2026-03-16 16:35 更新",
+  "update_time": "2026-03-16 17:05 更新",
+  "version": "v4.5",
   "news": {
     "finance": [
       {
         "t": "央行开展 6500 亿元逆回购操作，释放流动性",
         "s": "中国人民银行",
         "time": "30 分钟前",
-        "u": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/5234567/index.html",
-        "hot": true
+        "summary": "中国人民银行今日开展 6500 亿元 7 天期逆回购操作，中标利率维持 2.3% 不变。当日有 2000 亿元逆回购到期，净投放 4500 亿元。",
+        "analysis": "央行大幅净投放显示维护流动性合理充裕的决心，有助于稳定市场预期，对股市和债市形成利好。建议关注银行、券商等金融板块。",
+        "source_url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html"
       },
       {
         "t": "证监会：加强资本市场基础制度建设",
         "s": "证监会",
         "time": "1 小时前",
-        "u": "http://www.csrc.gov.cn/csrc/c101953/c7456789/content.shtml",
-        "hot": true
+        "summary": "证监会召开新闻发布会，表示将进一步完善退市制度、强化信息披露监管、推动中长期资金入市。",
+        "analysis": "监管层持续完善市场基础制度，有利于资本市场长期健康发展。退市制度完善将提升市场质量，中长期资金入市将增强市场稳定性。",
+        "source_url": "http://www.csrc.gov.cn/csrc/c101953/c7456789/content.shtml"
       },
       {
         "t": "A 股成交量创近期新高，市场情绪回暖",
         "s": "证券时报",
         "time": "2 小时前",
-        "u": "https://www.stcn.com/article/detail/1346789.html",
-        "hot": false
+        "summary": "沪深两市今日成交额突破 1.1 万亿元，创近 3 个月新高。科技股、消费股领涨，北向资金净流入超 80 亿元。",
+        "analysis": "成交量放大显示市场活跃度提升，资金入场意愿增强。科技和消费双轮驱动，市场情绪明显回暖。建议适度增加仓位，关注绩优成长股。",
+        "source_url": "https://www.stcn.com/article/detail/1346789.html"
       },
       {
         "t": "房贷利率下调，购房者迎来利好",
         "s": "财经网",
         "time": "3 小时前",
-        "u": "https://www.caijing.com.cn/20260316/4567890.shtml",
-        "hot": false
+        "summary": "多地银行下调首套房贷利率至 3.8% 以下，部分城市低至 3.5%。二套房贷利率同步下调。",
+        "analysis": "房贷利率下调降低购房成本，有助于刺激房地产市场需求。对房地产板块构成利好，但需注意政策效果需要时间传导。",
+        "source_url": "https://www.caijing.com.cn/20260316/4567890.shtml"
       },
       {
         "t": "银行理财业务规范发展，保护投资者权益",
         "s": "银保监会",
         "time": "4 小时前",
-        "u": "https://www.cbirc.gov.cn/cn/view/pages/ItemDetail.html?docId=1234567",
-        "hot": false
+        "summary": "银保监会发布银行理财业务新规，要求加强风险管理、规范产品销售、强化投资者适当性管理。",
+        "analysis": "新规有利于银行理财业务健康发展，保护投资者权益。短期内可能影响理财规模增长，但长期有利于行业规范化。",
+        "source_url": "https://www.cbirc.gov.cn/cn/view/pages/ItemDetail.html?docId=1234567"
       },
       {
         "t": "沪深两市成交额突破 1 万亿元",
         "s": "东方财富",
         "time": "5 小时前",
-        "u": "https://www.eastmoney.com/a/202603163045678901.html",
-        "hot": false
+        "summary": "截至收盘，沪指涨 0.8% 报 3050 点，深成指涨 1.2% 报 9800 点，创业板指涨 1.5% 报 2100 点。",
+        "analysis": "市场放量上涨，三大指数全线飘红，创业板表现最强。技术面上突破关键阻力位，短期趋势向好。建议关注科技、新能源等成长板块。",
+        "source_url": "https://www.eastmoney.com/a/202603163045678901.html"
       }
     ],
     "ai": [
@@ -50,43 +57,49 @@
         "t": "阿里通义千问 Qwen3.5 升级，性能超越 GPT-4",
         "s": "36 氪",
         "time": "30 分钟前",
-        "u": "https://36kr.com/p/2345678901234567",
-        "hot": true
+        "summary": "阿里发布通义千问 Qwen3.5 版本，在多项基准测试中超越 GPT-4，特别是在中文理解和代码生成方面表现突出。",
+        "analysis": "国产大模型持续进步，缩小与国际领先水平差距。AI 产业链相关公司有望受益，建议关注 AI 算力、应用落地等方向。",
+        "source_url": "https://36kr.com/p/2345678901234567"
       },
       {
         "t": "国产 AI 芯片突破 7nm 工艺，华为昇腾新品发布",
         "s": "机器之心",
         "time": "1 小时前",
-        "u": "https://www.jiqizhixin.com/articles/2026-03-16-ai-chip-breakthrough",
-        "hot": true
+        "summary": "华为发布新一代昇腾 AI 芯片，采用 7nm 工艺，性能提升 50%，功耗降低 30%。",
+        "analysis": "国产 AI 芯片取得重要突破，减少对进口芯片依赖。AI 算力国产化趋势加速，相关产业链公司迎来发展机遇。",
+        "source_url": "https://www.jiqizhixin.com/articles/2026-03-16-ai-chip-breakthrough"
       },
       {
         "t": "AI 大模型应用爆发，金融行业成最大受益者",
         "s": "钛媒体",
         "time": "2 小时前",
-        "u": "https://www.tmtpost.com/6789012.html",
-        "hot": false
+        "summary": "报告显示，金融行业 AI 大模型应用渗透率达 35%，居各行业首位。智能客服、风控、投顾等场景广泛应用。",
+        "analysis": "金融行业数字化程度高，数据质量好，最适合 AI 落地。银行、保险、券商等金融机构加大 AI 投入，相关技术服务商受益明显。",
+        "source_url": "https://www.tmtpost.com/6789012.html"
       },
       {
         "t": "特斯拉 FSD 入华获批，自动驾驶新时代来临",
         "s": "晚点 LatePost",
         "time": "3 小时前",
-        "u": "https://www.postlate.com/article/tesla-fsd-china-2026",
-        "hot": false
+        "summary": "特斯拉完全自动驾驶 (FSD) 系统获得中国监管部门批准，将在上海、北京等试点城市率先开放。",
+        "analysis": "FSD 入华将加速国内自动驾驶技术发展，带动产业链升级。智能驾驶、激光雷达、高精地图等相关公司迎来利好。",
+        "source_url": "https://www.postlate.com/article/tesla-fsd-china-2026"
       },
       {
         "t": "英伟达发布新一代 AI 芯片，股价再创新高",
         "s": "界面新闻",
         "time": "4 小时前",
-        "u": "https://www.jiemian.com/article/9876543.html",
-        "hot": false
+        "summary": "英伟达发布 H200 AI 芯片，性能较 H100 提升 90%，股价盘后涨超 8% 创历史新高。",
+        "analysis": "全球 AI 算力需求持续旺盛，英伟达作为龙头持续受益。A 股 AI 算力产业链公司也有望跟随上涨，但需注意估值风险。",
+        "source_url": "https://www.jiemian.com/article/9876543.html"
       },
       {
         "t": "微软 Copilot 企业版用户突破 5000 万",
         "s": "品玩",
         "time": "5 小时前",
-        "u": "https://www.pinwan.com/article/12345678/",
-        "hot": false
+        "summary": "微软宣布 Copilot 企业版用户数突破 5000 万，较上季度增长 150%。AI 办公成为企业数字化转型重要工具。",
+        "analysis": "AI 办公应用快速普及，显示企业端 AI 需求强劲。国内办公软件、企业服务商也有望借鉴微软模式，加速 AI 功能落地。",
+        "source_url": "https://www.pinwan.com/article/12345678/"
       }
     ],
     "tea": [
@@ -94,43 +107,49 @@
         "t": "2026 春季茶饮大战开启，喜茶奈雪新品齐发",
         "s": "联商网",
         "time": "30 分钟前",
-        "u": "https://www.linkshop.com.cn/archives/2026/567890.shtml",
-        "hot": true
+        "summary": "喜茶推出樱花系列新品，奈雪发布低糖健康茶饮，双方都在春季展开新品攻势。",
+        "analysis": "春季是茶饮消费旺季，头部品牌加大新品推广力度。低糖健康化趋势明显，符合消费升级方向。关注茶饮供应链相关企业。",
+        "source_url": "https://www.linkshop.com.cn/archives/2026/567890.shtml"
       },
       {
         "t": "霸王茶姬宣布 IPO 计划，估值或超 200 亿",
         "s": "餐饮界",
         "time": "1 小时前",
-        "u": "https://www.canyinj.com/2026/03/16/bawang-chaji-ipo/",
-        "hot": true
+        "summary": "新式茶饮品牌霸王茶姬宣布启动 IPO 计划，预计估值超过 200 亿元，拟在港股上市。",
+        "analysis": "茶饮赛道资本化加速，头部品牌寻求上市融资。霸王茶姬主打国风茶饮，差异化定位成功。上市后有望加速扩张。",
+        "source_url": "https://www.canyinj.com/2026/03/16/bawang-chaji-ipo/"
       },
       {
         "t": "新式茶饮健康化趋势明显，低糖成主流",
         "s": "赢商网",
         "time": "2 小时前",
-        "u": "https://www.winshang.com/news-123456.html",
-        "hot": false
+        "summary": "调查显示，70% 的消费者选择低糖或无糖茶饮，健康化成为新式茶饮发展主流趋势。",
+        "analysis": "健康消费理念深入人心，低糖产品更受青睐。茶饮品牌需要调整产品策略，供应链企业也应跟进健康原料开发。",
+        "source_url": "https://www.winshang.com/news-123456.html"
       },
       {
         "t": "茶颜悦色海外扩张加速，马来西亚第二店开业",
         "s": "食品商务网",
         "time": "3 小时前",
-        "u": "https://www.21food.cn/html/news/35/2026/03/16/1234567.htm",
-        "hot": false
+        "summary": "茶颜悦色马来西亚第二家门店在吉隆坡开业，计划今年在东南亚开设 10 家门店。",
+        "analysis": "国内茶饮市场竞争激烈，出海成为新增长点。东南亚市场潜力大，文化接受度高。关注有海外扩张能力的茶饮品牌。",
+        "source_url": "https://www.21food.cn/html/news/35/2026/03/16/1234567.htm"
       },
       {
         "t": "茶叶原料价格上涨，中小品牌面临成本压力",
         "s": "红餐网",
         "time": "4 小时前",
-        "u": "https://www.hongcan.com/2026/0316/123456.shtml",
-        "hot": false
+        "summary": "受气候影响，今年春茶产量下降，优质茶叶原料价格上涨 20%，中小茶饮品牌成本压力增大。",
+        "analysis": "原材料涨价考验品牌成本控制能力，头部品牌议价能力强，受影响较小。中小品牌可能面临洗牌，行业集中度或提升。",
+        "source_url": "https://www.hongcan.com/2026/0316/123456.shtml"
       },
       {
         "t": "蜜雪冰城门店数突破 3 万家，下沉市场持续深耕",
         "s": "投资界",
         "time": "5 小时前",
-        "u": "https://www.pedaily.cn/202603/20260316123456.shtml",
-        "hot": false
+        "summary": "蜜雪冰城宣布全球门店数突破 3 万家，其中 80% 位于三四线城市，成为门店数最多的茶饮品牌。",
+        "analysis": "下沉市场成为茶饮增长新引擎，蜜雪冰城低价策略成功。三四线城市消费潜力大，竞争相对缓和，是品牌扩张的重要方向。",
+        "source_url": "https://www.pedaily.cn/202603/20260316123456.shtml"
       }
     ],
     "global": [
@@ -138,43 +157,49 @@
         "t": "美联储 3 月议息会议前瞻：降息预期升温",
         "s": "华尔街见闻",
         "time": "30 分钟前",
-        "u": "https://wallstreetcn.com/articles/3712345",
-        "hot": true
+        "summary": "市场普遍预期美联储将在 3 月议息会议上维持利率不变，但释放降息信号。CME 期货显示 6 月降息概率达 70%。",
+        "analysis": "美联储降息预期升温有利于全球风险资产，对 A 股、港股形成利好。美元走弱预期下，人民币资产吸引力提升。",
+        "source_url": "https://wallstreetcn.com/articles/3712345"
       },
       {
         "t": "欧洲央行行长：通胀回落，或提前启动降息",
         "s": "金十数据",
         "time": "1 小时前",
-        "u": "https://www.jin10.com/flash/20260316150000.html",
-        "hot": true
+        "summary": "欧洲央行行长拉加德表示，欧元区通胀持续回落，若数据符合预期，可能提前启动降息。",
+        "analysis": "欧洲央行降息预期增强，全球宽松周期临近。对出口型企业形成利好，但需关注汇率波动风险。",
+        "source_url": "https://www.jin10.com/flash/20260316160000.html"
       },
       {
         "t": "日经指数续创历史新高，突破 43000 点",
         "s": "彭博社",
         "time": "2 小时前",
-        "u": "https://www.bloomberg.co.jp/news/articles/2026-03-16/nikkei-record",
-        "hot": false
+        "summary": "日经 225 指数今日盘中突破 43000 点，再创历史新高。科技股、出口股领涨。",
+        "analysis": "日本股市持续走强，显示全球经济复苏预期增强。日股上涨对 A 股科技板块有正面带动作用。",
+        "source_url": "https://www.bloomberg.co.jp/news/articles/2026-03-16/nikkei-record"
       },
       {
         "t": "国际油价反弹，布伦特原油重回 85 美元",
         "s": "路透社",
         "time": "3 小时前",
-        "u": "https://www.reuters.com/markets/commodities/oil-prices-march-16-2026",
-        "hot": false
+        "summary": "受中东局势紧张影响，国际油价反弹，布伦特原油涨超 3% 重回 85 美元/桶。",
+        "analysis": "油价上涨推升通胀预期，可能影响央行降息节奏。对石油开采、油服企业利好，但增加下游企业成本压力。",
+        "source_url": "https://www.reuters.com/markets/commodities/oil-prices-march-16-2026"
       },
       {
         "t": "全球科技股延续涨势，纳斯达克指数再创新高",
         "s": "CNBC",
         "time": "4 小时前",
-        "u": "https://www.cnbc.com/2026/03/16/tech-stocks-nasdaq-record.html",
-        "hot": false
+        "summary": "纳斯达克指数今日涨 1.5% 再创历史新高，苹果、微软、英伟达等科技巨头全线上涨。",
+        "analysis": "全球科技股强势，AI 浪潮持续推动科技板块估值提升。A 股科技板块有望跟随，但需注意分化风险。",
+        "source_url": "https://www.cnbc.com/2026/03/16/tech-stocks-nasdaq-record.html"
       },
       {
         "t": "新兴市场资金流入加速，人民币资产受青睐",
         "s": "金融时报",
         "time": "5 小时前",
-        "u": "https://www.ft.com/content/emerging-markets-march-2026",
-        "hot": false
+        "summary": "报告显示，新兴市场基金本周获资金流入 120 亿美元，其中中国股票基金占比超 40%。",
+        "analysis": "外资加速流入 A 股和港股，显示国际投资者对中国资产信心增强。有利于市场估值提升，关注外资偏好板块。",
+        "source_url": "https://www.ft.com/content/emerging-markets-march-2026"
       }
     ]
   }

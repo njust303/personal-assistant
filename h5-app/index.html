@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>个人理财助手 v4.4 - 专业版</title>
+    <title>个人理财助手 v4.5 - 专业版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
@@ -212,7 +212,7 @@
     </div>
     <div class="footer">
         <div>⚠️ 投资有风险，决策需谨慎</div>
-        <div style="margin-top:6px;">💰 个人理财助手 v4.4 | 2026-03-16 16:55 发布</div>
+        <div style="margin-top:6px;">💰 个人理财助手 v4.5 | 2026-03-16 17:05 发布</div>
         <div style="margin-top:6px; color:#ccc;">本应用仅提供信息参考，不构成投资建议</div>
     </div>
     <script>
@@ -450,15 +450,24 @@
         function renderNews(category) {
             const list = document.getElementById('newsList');
             if (!window.newsData || !window.newsData[category]) {
-                list.innerHTML = '<div style="text-align:center;padding:20px;color:#999;">加载中...</div>';
+                list.innerHTML = '<div style="text-align:center;padding:20px;color:#999;">📰 新闻加载中...</div>';
                 return;
             }
             list.innerHTML = window.newsData[category].map(n => `
-                <div class="news-item">
-                    <div class="news-title"><a href="${n.u}" target="_blank" rel="noopener noreferrer">${n.t}</a></div>
-                    <div class="news-meta">
-                        <span class="${n.hot ? 'news-hot' : 'news-source'}">${n.hot ? '🔥 热门' : n.s}</span>
-                        <span>${n.time}</span>
+                <div class="news-item" style="border-left:4px solid ${n.hot ? '#FAAD14' : '#0066FF'};padding:16px;margin-bottom:12px;border-radius:8px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                        <div style="font-size:15px;font-weight:600;color:#333;">${n.hot ? '🔥 ' : ''}${n.t}</div>
+                        <span style="font-size:11px;color:#999;">${n.time}</span>
+                    </div>
+                    <div style="font-size:12px;color:#1890FF;margin-bottom:8px;">📌 ${n.s}</div>
+                    <div style="font-size:14px;color:#555;line-height:1.6;margin-bottom:10px;background:#f6ffed;padding:12px;border-radius:6px;border-left:3px solid #52C41A;">
+                        <strong style="color:#237804;">📝 核心内容：</strong>${n.summary}
+                    </div>
+                    <div style="font-size:14px;color:#555;line-height:1.6;margin-bottom:10px;background:#f0f5ff;padding:12px;border-radius:6px;border-left:3px solid #0066FF;">
+                        <strong style="color:#0052CC;">💡 AI 分析：</strong>${n.analysis}
+                    </div>
+                    <div style="font-size:11px;color:#999;border-top:1px dashed #e8e8e8;padding-top:8px;margin-top:10px;">
+                        📎 来源：<a href="${n.source_url}" target="_blank" rel="noopener noreferrer" style="color:#0066FF;text-decoration:none;">${n.source_url}</a>
                     </div>
                 </div>
             `).join('');
