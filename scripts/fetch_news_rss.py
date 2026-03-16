@@ -13,32 +13,37 @@ from pathlib import Path
 import re
 import requests
 
-# RSS 订阅源配置（更多备选源）
+# RSS 订阅源配置（持续更新中）
 RSS_FEEDS = {
     "finance": [
+        "https://xueqiu.com/hots/topic/rss",
         "http://rss.sina.com.cn/finance/stock/sscj.xml",
         "http://rss.sina.com.cn/finance/finances/ssyq.xml",
         "http://app.eastmoney.com/rss/rss.xml",
         "http://rss.hexun.com/stock/24.xml",
-        "https://xueqiu.com/hots/topic/rss"
+        "http://finance.qq.com/rss/finance.xml"
     ],
     "ai": [
         "https://www.oschina.net/news/rss?catalog=ai",
         "https://blog.csdn.net/nav/ai/rss",
         "https://www.jiqizhixin.com/rss",
-        "https://36kr.com/feed"
+        "https://36kr.com/feed",
+        "https://www.tmtpost.com/feed"
     ],
     "tea": [
         "http://news.foodmate.net/rss.php",
         "http://rss.winshang.com/news.xml",
         "http://www.canyinj.com/rss/",
-        "http://www.linkshop.com.cn/rss/news.xml"
+        "http://www.linkshop.com.cn/rss/news.xml",
+        "http://www.hongcan.com/rss/"
     ],
     "global": [
         "http://rss.sina.com.cn/news/world/rss.xml",
         "https://www.cankaoxiaoxi.com/rss/world.xml",
         "http://rss.chinadaily.com.cn/china/world.xml",
-        "http://app.eastmoney.com/rss/global.xml"
+        "http://app.eastmoney.com/rss/global.xml",
+        "http://rss.people.com.cn/rss/world.xml",
+        "http://news.qq.com/rss/world.xml"
     ]
 }
 

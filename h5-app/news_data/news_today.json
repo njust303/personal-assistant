@@ -1,5 +1,5 @@
 {
-  "update_time": "2026-03-16 17:44 更新",
+  "update_time": "2026-03-16 18:04 更新",
   "version": "v4.7-RSS",
   "source": "RSS 实时抓取",
   "note": "数据来自真实 RSS 订阅源，确保时效性和真实性",
@@ -62,6 +62,15 @@
     ],
     "ai": [
       {
+        "t": "Ant Design 6.3.3 发布，企业级 UI 设计语言和 React 实现",
+        "s": "科技",
+        "time": "刚刚",
+        "date": "2026-03-16",
+        "summary": "Ant Design 是阿里巴巴开源的一套企业级 UI 设计语言和 React 组件库。Ant Design 6.3.3 现已发布，主要更新内容如下： Image 优化 Image 预览蒙层 blur 效果的 backdrop-filter 过渡，减少闪烁感。#57299 修复 Image 在 movable={false} 时仍显示 move 光标的问题。#57288 优化 App 链接的 :focus-visible 外框样式，提...",
+        "analysis": "💡 AI 产业发展迅速，算力、算法、应用三个环节都有投资机会。建议关注有核心技术、有应用场景的公司，如芯片、大模型、办公软件等。",
+        "source_url": "https://www.oschina.net/news/411031/ant-design-6-3-3-released"
+      },
+      {
         "t": "会做科研的DrClaw来了！从部署到科研实操，零基础也能上车｜爱赛思OpenAI4S社区百家讲坛第一期",
         "s": "科技",
         "time": "刚刚",
@@ -105,15 +114,6 @@
         "summary": "本文将引导您了解我们如何改进 HNSW 早期终止机制，使其更适合不同的数据集和数据分布。",
         "analysis": "💡 AI 产业发展迅速，算力、算法、应用三个环节都有投资机会。建议关注有核心技术、有应用场景的公司，如芯片、大模型、办公软件等。",
         "source_url": "https://my.oschina.net/u/3343882/blog/19208956"
-      },
-      {
-        "t": "【重要通知】新老版本均可用！JeecgBoot 正式接入 AI Skills，一句话生成整套系统",
-        "s": "科技",
-        "time": "刚刚",
-        "date": "2026-03-16",
-        "summary": "JeecgBoot 低代码平台正式推出 AI 技能体系（Skills），结合 Claude Code 强大的 AI 编程能力，让 &quot;一句话搭建系统&quot; 成为现实。 过去搭建一套业务系统，你需要设计数据库、写后端接口、画前端页面、配菜单权限 ------ 即使用低代码平台，也免不了大量配置和调试。 现在，这一切只需要一句话。 JeecgBoot 全新推出的 AI 技...",
-        "analysis": "💡 AI 产业发展迅速，算力、算法、应用三个环节都有投资机会。建议关注有核心技术、有应用场景的公司，如芯片、大模型、办公软件等。",
-        "source_url": "https://www.oschina.net/news/410970"
       }
     ],
     "tea": [
