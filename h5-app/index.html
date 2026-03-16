@@ -449,9 +449,13 @@
         
         function renderNews(category) {
             const list = document.getElementById('newsList');
-            list.innerHTML = newsData[category].map(n => `
+            if (!window.newsData || !window.newsData[category]) {
+                list.innerHTML = '<div style="text-align:center;padding:20px;color:#999;">加载中...</div>';
+                return;
+            }
+            list.innerHTML = window.newsData[category].map(n => `
                 <div class="news-item">
-                    <div class="news-title"><a href="${n.u}" target="_blank">${n.t}</a></div>
+                    <div class="news-title"><a href="${n.u}" target="_blank" rel="noopener noreferrer">${n.t}</a></div>
                     <div class="news-meta">
                         <span class="${n.hot ? 'news-hot' : 'news-source'}">${n.hot ? '🔥 热门' : n.s}</span>
                         <span>${n.time}</span>
@@ -508,8 +512,10 @@
         updateTime();
         setInterval(updateTime, 60000);
         renderArticles();
-        showNews('finance');
+        // 先加载外部数据，再显示新闻
         loadLastUpdateTime();
+        // 初始显示用空数据，等加载完成后再渲染
+        document.getElementById('newsList').innerHTML = '<div style="text-align:center;padding:20px;color:#999;">📰 新闻加载中...</div>';
     </script>
 </body>
 </html>
