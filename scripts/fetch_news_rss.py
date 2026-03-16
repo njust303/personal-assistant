@@ -16,12 +16,12 @@ import requests
 # RSS 订阅源配置（持续更新中）
 RSS_FEEDS = {
     "finance": [
-        "https://xueqiu.com/hots/topic/rss",
         "http://rss.sina.com.cn/finance/stock/sscj.xml",
         "http://rss.sina.com.cn/finance/finances/ssyq.xml",
         "http://app.eastmoney.com/rss/rss.xml",
         "http://rss.hexun.com/stock/24.xml",
-        "http://finance.qq.com/rss/finance.xml"
+        "http://finance.qq.com/rss/finance.xml",
+        "https://xueqiu.com/hots/topic/rss"
     ],
     "ai": [
         "https://www.oschina.net/news/rss?catalog=ai",
@@ -88,7 +88,13 @@ def parse_rss_feed(feed_url, category):
         
         # 提取内容
         title = entry.get('title', '')
-        summary = entry.get('summary', entry.get('description', ''))
+        # 尝试多个字段获取内容
+        summary = entry.get('summary', '')
+        if not summary:
+            summary = entry.get('description', '')
+        if not summary:
+            summary = entry.get('content', [{}])[0].get('value', '') if entry.get('content') else ''
+        
         link = entry.get('link', '')
         
         # 清理 HTML 标签
@@ -98,13 +104,17 @@ def parse_rss_feed(feed_url, category):
         if not title or len(title) < 5:
             continue
         
+        # 如果 summary 为空，标注"详情见原文链接"
+        if not summary or len(summary) < 10:
+            summary = "👉 详情请点击文末原文链接查看完整报道。"
+        
         articles.append({
             "t": title,
             "s": get_category_name(category),
             "time": time_ago,
             "date": date_str,
             "summary": summary[:300] + "..." if len(summary) > 300 else summary,
-            "analysis": generate_analysis(title, summary, category),
+            "analysis": "",  # 移除假分析，等后续用 AI 真正分析
             "source_url": link
         })
         
