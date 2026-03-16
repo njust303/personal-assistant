@@ -485,7 +485,8 @@
         }
         
         function loadLastUpdateTime() {
-            fetch('news_data/news_today.json?t=' + Date.now())
+            // 添加版本号参数，强制刷新缓存
+            fetch('news_data/news_today.json?v=202603161300&t=' + Date.now())
                 .then(r => r.json())
                 .then(data => {
                     document.getElementById('lastUpdate').textContent = '最后更新：' + data.update_time;
